@@ -12,3 +12,14 @@ polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 color = Color(0.127806, 0.417189, 0.201705, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Coyote" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[node name="JumpBuffer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[connection signal="timeout" from="Coyote" to="." method="_on_coyote_timeout"]
+[connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]

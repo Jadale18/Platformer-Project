@@ -64,4 +64,9 @@ func _on_jump_buffer_timeout():
 	jump_buffer = false
 
 func _on_area_2d_area_entered(area):
-	global_position = starting_pos
+	if area.name == "Hazards":
+		global_position = starting_pos
+	else:
+		get_tree().root.add_child(Global.battle_scene)
+		Global.player_pos = global_position
+		get_node("/root/World").queue_free()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://doxuqigm16ink"]
 
-[ext_resource type="PackedScene" uid="uid://dmq8hpnbf4f5x" path="res://hazards.tscn" id="1_vvc4p"]
+[ext_resource type="PackedScene" uid="uid://dmq8hpnbf4f5x" path="res://World/hazards.tscn" id="1_vvc4p"]
 
 [node name="spikes" type="Node2D"]
 

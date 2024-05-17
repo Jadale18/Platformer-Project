@@ -21,3 +21,7 @@ func movement():
 		direction *= -1
 		scale.x *= -1
 	velocity.x = direction * SPEED
+
+
+func _on_area_2d_area_entered(area):
+	print("ahh")

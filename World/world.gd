@@ -7,3 +7,4 @@ extends Node2D
 func _ready():
 	RenderingServer.set_default_clear_color(Color.SKY_BLUE)
 	polygon_2d.polygon = collision_polygon_2d.polygon
+	$Player.global_position = Global.player_pos

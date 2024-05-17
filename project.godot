@@ -11,13 +11,16 @@ config_version=5
 [application]
 
 config/name="GitTesting"
-run/main_scene="res://world.tscn"
+run/main_scene="res://World/world.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Assets/icon.svg"
+
+[autoload]
+
+Global="*res://global.gd"
 
 [display]
 
-window/size/mode=2
 window/stretch/mode="canvas_items"
 
 [layer_names]
@@ -25,6 +28,7 @@ window/stretch/mode="canvas_items"
 2d_physics/layer_1="World"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Hazards"
+2d_physics/layer_4="Enemies"
 
 [rendering]
 

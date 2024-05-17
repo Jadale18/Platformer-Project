@@ -11,6 +11,7 @@ const jump_reduction = 1.8
 
 @onready var collision_polygon_2d = $CollisionPolygon2D
 @onready var polygon_2d = $CollisionPolygon2D/Polygon2D
+@onready var starting_pos = global_position
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -25,6 +26,7 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
+#Movement
 func handle_axis(direction, delta):
 	if direction:
 		velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION * delta)
@@ -60,3 +62,6 @@ func _on_coyote_timeout():
 
 func _on_jump_buffer_timeout():
 	jump_buffer = false
+
+func _on_area_2d_area_entered(area):
+	global_position = starting_pos

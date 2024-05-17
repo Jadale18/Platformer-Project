@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cijhqdipxsakw"]
+[gd_scene load_steps=5 format=3 uid="uid://cijhqdipxsakw"]
 
 [ext_resource type="PackedScene" uid="uid://17uvdl8q4dts" path="res://player.tscn" id="1_ek4dg"]
 [ext_resource type="Script" path="res://world.gd" id="1_otnw3"]
+[ext_resource type="PackedScene" uid="uid://doxuqigm16ink" path="res://spikes.tscn" id="3_hrmun"]
+[ext_resource type="PackedScene" uid="uid://bthuc3300sgwu" path="res://enemy.tscn" id="4_cp27f"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_otnw3")
@@ -10,8 +12,18 @@ script = ExtResource("1_otnw3")
 position = Vector2(168, 488)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(0, -8, 120, -8, 112, 536, 592, 536, 624, 496, 704, 496, 704, 536, 896, 536, 968, 520, 1072, 520, 1104, 536, 1104, 480, 1168, 480, 1168, 536, 1216, 536, 1216, 448, 1280, 448, 1280, 536, 1328, 536, 1328, 504, 1344, 504, 1344, 440, 1400, 440, 1400, 536, 1456, 536, 1456, 472, 1496, 472, 1496, 536, 1544, 536, 2251, 663, 1496, 672, 1184, 672, -104, 648, -80, -8)
+polygon = PackedVector2Array(112, 440, 112, 536, 592, 536, 624, 496, 704, 496, 704, 536, 896, 536, 968, 520, 1072, 520, 1104, 536, 1104, 480, 1168, 480, 1168, 536, 1216, 536, 1216, 448, 1280, 448, 1280, 536, 1328, 536, 1328, 504, 1344, 504, 1344, 440, 1400, 440, 1400, 536, 1464, 536, 1464, 472, 1496, 472, 1496, 536, 1544, 536, 2251, 663, 1496, 672, 1184, 672, -480, 672, -920, 536, -512, 536, -512, 440)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+
+[node name="spikes" parent="." instance=ExtResource("3_hrmun")]
+position = Vector2(1416, 536)
+
+[node name="spikes2" parent="." instance=ExtResource("3_hrmun")]
+position = Vector2(1448, 536)
+
+[node name="Enemy" parent="." instance=ExtResource("4_cp27f")]
+position = Vector2(824, 528)

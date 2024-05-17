@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://doxuqigm16ink"]
+
+[ext_resource type="PackedScene" uid="uid://dmq8hpnbf4f5x" path="res://hazards.tscn" id="1_vvc4p"]
+
+[node name="spikes" type="Node2D"]
+
+[node name="Hazards" parent="." instance=ExtResource("1_vvc4p")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hazards"]
+polygon = PackedVector2Array(-16, 0, -8, -16, 0, 0, 8, -16, 16, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="Hazards"]
+color = Color(0.668629, 0.668629, 0.668629, 1)
+polygon = PackedVector2Array(-16, 0, -8, -16, 0, 0, 8, -16, 16, 0)

@@ -17,3 +17,5 @@ func _process(delta):
 func _on_scram_pressed():
 	get_tree().root.add_child(Global.world_scene)
 	get_node("/root/Battle").queue_free()
+	Global.battle_scene = preload('res://World/battle.tscn').instantiate()
+	Global.world_scene = preload('res://World/world.tscn').instantiate()

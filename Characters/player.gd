@@ -69,4 +69,6 @@ func _on_area_2d_area_entered(area):
 	else:
 		get_tree().root.add_child(Global.battle_scene)
 		Global.player_pos = global_position
+		Global.spawn_enemies = false
 		get_node("/root/World").queue_free()
+		

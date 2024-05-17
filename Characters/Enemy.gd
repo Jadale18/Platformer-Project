@@ -14,6 +14,7 @@ func _ready():
 
 func _physics_process(delta):
 	movement()
+	apply_gravity(delta)
 	move_and_slide()
 
 func movement():
@@ -22,6 +23,9 @@ func movement():
 		scale.x *= -1
 	velocity.x = direction * SPEED
 
+func apply_gravity(delta):
+	if not is_on_floor():
+		velocity.y += gravity * delta
 
 func _on_area_2d_area_entered(area):
 	print("ahh")

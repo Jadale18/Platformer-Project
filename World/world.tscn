@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cijhqdipxsakw"]
+[gd_scene load_steps=4 format=3 uid="uid://cijhqdipxsakw"]
 
 [ext_resource type="PackedScene" uid="uid://17uvdl8q4dts" path="res://Characters/player.tscn" id="1_ek4dg"]
 [ext_resource type="Script" path="res://World/world.gd" id="1_otnw3"]
 [ext_resource type="PackedScene" uid="uid://doxuqigm16ink" path="res://World/spikes.tscn" id="3_hrmun"]
-[ext_resource type="PackedScene" uid="uid://bthuc3300sgwu" path="res://Characters/enemy.tscn" id="4_cp27f"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_otnw3")
@@ -24,6 +23,3 @@ position = Vector2(1416, 536)
 
 [node name="spikes2" parent="." instance=ExtResource("3_hrmun")]
 position = Vector2(1448, 536)
-
-[node name="Enemy" parent="." instance=ExtResource("4_cp27f")]
-position = Vector2(824, 528)

@@ -10,5 +10,5 @@
 polygon = PackedVector2Array(-16, 0, -8, -16, 0, 0, 8, -16, 16, 0)
 
 [node name="Polygon2D" type="Polygon2D" parent="Hazards"]
-color = Color(0.668629, 0.668629, 0.668629, 1)
+color = Color(0.807843, 0.482353, 0.568627, 1)
 polygon = PackedVector2Array(-16, 0, -8, -16, 0, 0, 8, -16, 16, 0)

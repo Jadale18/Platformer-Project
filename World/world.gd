@@ -6,8 +6,9 @@ var enemy_scene = preload('res://Characters/enemy.tscn').instantiate()
 
 
 func _ready():
-	RenderingServer.set_default_clear_color(Color.SKY_BLUE)
+	RenderingServer.set_default_clear_color(Color8(73,151,206,1))
 	polygon_2d.polygon = collision_polygon_2d.polygon
+	$StaticBody2D2/CollisionPolygon2D/Polygon2D.polygon = $StaticBody2D2/CollisionPolygon2D.polygon
 	$Player.global_position = Global.player_pos
 	
 	if Global.spawn_enemies:

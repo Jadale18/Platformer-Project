@@ -4,6 +4,7 @@ extends Control
 
 func _on_start_pressed():
 	get_tree().root.add_child(Global.world_scene)
+	Global.pausable = true
 	get_node("/root/MainMenu").queue_free()
 	Global.world_scene = preload('res://World/world.tscn').instantiate()
 

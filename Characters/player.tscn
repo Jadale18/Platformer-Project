@@ -70,7 +70,7 @@ color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-8, 0, -8, 8, 8, 8, 8, -8, -8, -8)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-8, -8, 8, -8, 8, 14, -8, 14)
+polygon = PackedVector2Array(-8.06977, -12.4976, 7.70297, -12.4362, 8.00159, 13.3949, -8.21028, 13.5076)
 
 [node name="Polygon2D" type="Polygon2D" parent="CollisionPolygon2D"]
 visible = false

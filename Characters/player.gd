@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 const ACCELERATION = 1500.0
 const FRICTION = 800.0
@@ -30,6 +30,13 @@ func _physics_process(delta):
 func handle_anims():
 	if velocity.x == 0 and is_on_floor():
 		$AnimatedSprite2D.play("Rest")
+	else:
+		$AnimatedSprite2D.play("Run")
+	
+	if velocity.x < 0:
+		$AnimatedSprite2D.flip_h = true
+	if velocity.x > 0:
+		$AnimatedSprite2D.flip_h = false
 
 #Movement
 func handle_axis(direction, delta):

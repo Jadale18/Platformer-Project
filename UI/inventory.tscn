@@ -64,7 +64,7 @@ grow_vertical = 2
 position = Vector2(281, 303)
 scale = Vector2(0.241975, 0.223611)
 sprite_frames = SubResource("SpriteFrames_f717v")
-frame_progress = 0.966627
+frame_progress = 0.774701
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 offset_left = 113.0

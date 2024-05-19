@@ -64,12 +64,12 @@ grow_vertical = 2
 position = Vector2(281, 303)
 scale = Vector2(0.241975, 0.223611)
 sprite_frames = SubResource("SpriteFrames_f717v")
-frame_progress = 0.774701
+frame_progress = 0.876563
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
-offset_left = 113.0
+offset_left = 86.0
 offset_top = 414.0
-offset_right = 153.0
+offset_right = 126.0
 offset_bottom = 454.0
 
 [node name="Panel2" type="Panel" parent="CanvasLayer"]
@@ -98,11 +98,11 @@ offset_bottom = 170.0
 text = "Shoes
 "
 flat = false
-item_count = 2
-popup/item_0/text = "1"
-popup/item_0/id = 0
-popup/item_1/text = "2"
-popup/item_1/id = 1
+icon_alignment = 1
+vertical_icon_alignment = 0
+item_count = 1
+popup/item_0/text = "2"
+popup/item_0/id = 1
 
 [node name="MenuButton2" type="MenuButton" parent="CanvasLayer"]
 offset_left = 875.0

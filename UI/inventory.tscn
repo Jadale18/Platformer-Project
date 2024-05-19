@@ -1,0 +1,145 @@
+[gd_scene load_steps=10 format=3 uid="uid://d1oqnk3x5kcd5"]
+
+[ext_resource type="Texture2D" uid="uid://cp7p5yy1j762k" path="res://Assets/Player/Char1.png" id="1_dx1k3"]
+[ext_resource type="Texture2D" uid="uid://cyg503rbrqhu0" path="res://Assets/Player/Char2.png" id="2_jdtrn"]
+[ext_resource type="Texture2D" uid="uid://dvebmf5togxqa" path="res://Assets/Player/Char3.png" id="3_od0n8"]
+[ext_resource type="Texture2D" uid="uid://cs8q3hpb32ett" path="res://Assets/Player/Char4.png" id="4_3npwq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0j6n0"]
+atlas = ExtResource("1_dx1k3")
+region = Rect2(0, 0, 1620, 2160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t02v6"]
+atlas = ExtResource("2_jdtrn")
+region = Rect2(0, 0, 1620, 2160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otaqf"]
+atlas = ExtResource("3_od0n8")
+region = Rect2(0, 0, 1620, 2160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rij2m"]
+atlas = ExtResource("4_3npwq")
+region = Rect2(0, 0, 1620, 2160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f717v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0j6n0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0j6n0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t02v6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otaqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rij2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otaqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t02v6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(281, 303)
+scale = Vector2(0.241975, 0.223611)
+sprite_frames = SubResource("SpriteFrames_f717v")
+frame_progress = 0.966627
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_left = 113.0
+offset_top = 414.0
+offset_right = 153.0
+offset_bottom = 454.0
+
+[node name="Panel2" type="Panel" parent="CanvasLayer"]
+offset_left = 223.0
+offset_top = 86.0
+offset_right = 263.0
+offset_bottom = 126.0
+
+[node name="Panel3" type="Panel" parent="CanvasLayer"]
+offset_left = 63.0
+offset_top = 254.0
+offset_right = 103.0
+offset_bottom = 294.0
+
+[node name="Panel4" type="Panel" parent="CanvasLayer"]
+offset_left = 487.0
+offset_top = 271.0
+offset_right = 527.0
+offset_bottom = 311.0
+
+[node name="MenuButton" type="MenuButton" parent="CanvasLayer"]
+offset_left = 878.0
+offset_top = 139.0
+offset_right = 924.0
+offset_bottom = 170.0
+text = "Shoes
+"
+flat = false
+item_count = 2
+popup/item_0/text = "1"
+popup/item_0/id = 0
+popup/item_1/text = "2"
+popup/item_1/id = 1
+
+[node name="MenuButton2" type="MenuButton" parent="CanvasLayer"]
+offset_left = 875.0
+offset_top = 403.0
+offset_right = 921.0
+offset_bottom = 434.0
+text = "Hat"
+flat = false
+item_count = 2
+popup/item_0/text = "1"
+popup/item_0/id = 0
+popup/item_1/text = "2"
+popup/item_1/id = 1
+
+[node name="MenuButton3" type="MenuButton" parent="CanvasLayer"]
+offset_left = 876.0
+offset_top = 229.0
+offset_right = 922.0
+offset_bottom = 260.0
+text = "Weapon"
+flat = false
+item_count = 2
+popup/item_0/text = "1"
+popup/item_0/id = 0
+popup/item_1/text = "2"
+popup/item_1/id = 1
+
+[node name="MenuButton4" type="MenuButton" parent="CanvasLayer"]
+offset_left = 872.0
+offset_top = 296.0
+offset_right = 918.0
+offset_bottom = 327.0
+text = "Garment
+"
+flat = false
+item_count = 2
+popup/item_0/text = "1"
+popup/item_0/id = 0
+popup/item_1/text = "2"
+popup/item_1/id = 1

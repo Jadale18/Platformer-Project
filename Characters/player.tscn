@@ -1,24 +1,83 @@
-[gd_scene load_steps=2 format=3 uid="uid://17uvdl8q4dts"]
+[gd_scene load_steps=11 format=3 uid="uid://17uvdl8q4dts"]
 
 [ext_resource type="Script" path="res://Characters/player.gd" id="1_6ey2k"]
+[ext_resource type="Texture2D" uid="uid://cp7p5yy1j762k" path="res://Assets/Player/Char1.png" id="2_0u75b"]
+[ext_resource type="Texture2D" uid="uid://cyg503rbrqhu0" path="res://Assets/Player/Char2.png" id="3_5ux2l"]
+[ext_resource type="Texture2D" uid="uid://dvebmf5togxqa" path="res://Assets/Player/Char3.png" id="4_j683e"]
+[ext_resource type="Texture2D" uid="uid://cs8q3hpb32ett" path="res://Assets/Player/Char4.png" id="5_orvgp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je74y"]
+atlas = ExtResource("2_0u75b")
+region = Rect2(0, 0, 1620, 2160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whapo"]
+atlas = ExtResource("3_5ux2l")
+region = Rect2(0, 0, 1620, 2160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj45l"]
+atlas = ExtResource("4_j683e")
+region = Rect2(0, 0, 1620, 2160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i12do"]
+atlas = ExtResource("5_orvgp")
+region = Rect2(0, 0, 1620, 2160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6j57q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je74y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je74y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whapo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fj45l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i12do")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fj45l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whapo")
+}],
+"loop": true,
+"name": &"Rest",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_6ey2k")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.017, 0.017)
+sprite_frames = SubResource("SpriteFrames_6j57q")
+animation = &"Rest"
+frame_progress = 0.288252
+speed_scale = 2.0
+
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 scale = Vector2(1.11, 1.11)
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-8, 0, -8, 8, 8, 8, 8, -8, -8, -8)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 14, -8, 14)
 
 [node name="Polygon2D" type="Polygon2D" parent="CollisionPolygon2D"]
+visible = false
 color = Color(0.666667, 0.682353, 0.556863, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="Coyote" type="Timer" parent="."]

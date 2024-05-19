@@ -23,8 +23,13 @@ func _physics_process(delta):
 	handle_jump()
 	var direction = Input.get_axis("ui_left", "ui_right")
 	handle_axis(direction, delta)
+	handle_anims()
 	
 	move_and_slide()
+
+func handle_anims():
+	if velocity.x == 0 and is_on_floor():
+		$AnimatedSprite2D.play("Rest")
 
 #Movement
 func handle_axis(direction, delta):

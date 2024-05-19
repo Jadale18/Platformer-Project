@@ -1,14 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://cijhqdipxsakw"]
+[gd_scene load_steps=7 format=3 uid="uid://cijhqdipxsakw"]
 
 [ext_resource type="PackedScene" uid="uid://17uvdl8q4dts" path="res://Characters/player.tscn" id="1_ek4dg"]
 [ext_resource type="Script" path="res://World/world.gd" id="1_otnw3"]
 [ext_resource type="PackedScene" uid="uid://doxuqigm16ink" path="res://World/spikes.tscn" id="3_hrmun"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8fjl"]
+size = Vector2(19713, 1028)
+
+[sub_resource type="Animation" id="Animation_j07un"]
+resource_name = "Cutscene"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(505, -200), Vector2(503, 212), Vector2(503, 212), Vector2(505, -205)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ev4h1"]
+_data = {
+"Cutscene": SubResource("Animation_j07un")
+}
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_otnw3")
 
 [node name="Player" parent="." instance=ExtResource("1_ek4dg")]
-position = Vector2(169, 488)
+position = Vector2(182, 512)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_mask = 0
@@ -34,3 +58,37 @@ polygon = PackedVector2Array(112, 536, 896, 536, 1104, 536, 1168, 536, 1216, 536
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D2/CollisionPolygon2D"]
 color = Color(0.109804, 0.192157, 0.266667, 1)
+
+[node name="Cutscene" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscene"]
+position = Vector2(371, 3150)
+shape = SubResource("RectangleShape2D_m8fjl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Title" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 503.88
+offset_top = 30.72
+offset_right = -503.116
+offset_bottom = -523.281
+grow_horizontal = 2
+grow_vertical = 2
+text = "Name of game
+
+By: Jacob Lewis"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ev4h1")
+}
+
+[connection signal="area_entered" from="Cutscene" to="." method="_on_cutscene_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

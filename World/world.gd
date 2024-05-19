@@ -14,3 +14,13 @@ func _ready():
 	if Global.spawn_enemies:
 		enemy_scene.position = Vector2(744,512)
 		add_child(enemy_scene)
+
+
+func _on_cutscene_area_entered(area):
+	$CanvasLayer.show()
+	$AnimationPlayer.play("Cutscene")
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "Cutscene":
+		$CanvasLayer.hide()

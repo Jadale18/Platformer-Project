@@ -8,6 +8,8 @@ const FRICTION = 800.0
 var coyote_time = false
 var jump_buffer = false
 const jump_reduction = 1.8
+var jumping = false
+var falling = false
 
 @onready var collision_polygon_2d = $CollisionPolygon2D
 @onready var polygon_2d = $CollisionPolygon2D/Polygon2D
@@ -21,6 +23,7 @@ func _ready():
 func _physics_process(delta):
 	apply_gravity(delta)
 	handle_jump()
+	check_falling()
 	var direction = Input.get_axis("ui_left", "ui_right")
 	handle_axis(direction, delta)
 	handle_anims()
@@ -30,9 +33,13 @@ func _physics_process(delta):
 func handle_anims():
 	if velocity.x == 0 and is_on_floor():
 		$AnimatedSprite2D.play("Rest")
-	else:
+	elif not jumping and not falling:
 		$AnimatedSprite2D.play("Run")
-	
+	elif jumping and not falling:
+		$AnimatedSprite2D.play('Jump')
+	elif falling:
+		$AnimatedSprite2D.play('fall')
+
 	if velocity.x < 0:
 		$AnimatedSprite2D.flip_h = true
 	if velocity.x > 0:
@@ -47,19 +54,30 @@ func handle_axis(direction, delta):
 
 func handle_jump():
 	if is_on_floor():
+		jumping = false
 		coyote_time = true
 		$Coyote.start()
 		if jump_buffer:
-			velocity.y = JUMP_VELOCITY
+			jump()
 	if Input.is_action_just_pressed("ui_up"):
 		if is_on_floor() or coyote_time:
-			velocity.y = JUMP_VELOCITY
+			jump()
 			coyote_time = false
 		else:
 			$JumpBuffer.start()
 			jump_buffer = true
 	if Input.is_action_just_released("ui_up") and velocity.y < 0:
 		velocity.y = velocity.y/jump_reduction
+
+func jump():
+	jumping = true
+	velocity.y = JUMP_VELOCITY
+
+func check_falling():
+	if velocity.y > 0:
+		falling = true
+	else:
+		falling = false
 
 func apply_gravity(delta):
 	if not is_on_floor():

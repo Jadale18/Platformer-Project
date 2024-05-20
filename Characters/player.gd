@@ -45,7 +45,7 @@ func handle_anims():
 	if velocity.x > 0:
 		$AnimatedSprite2D.flip_h = false
 
-#Movement
+# Movement
 func handle_axis(direction, delta):
 	if direction:
 		velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION * delta)
@@ -98,6 +98,8 @@ func _on_area_2d_area_entered(area):
 		global_position = starting_pos
 	elif area.name == 'Cutscene':
 		pass
+	elif area.get_parent().is_in_group("Items"):
+		print('item')
 	else:
 		get_tree().root.add_child(Global.battle_scene)
 		Global.player_pos = global_position

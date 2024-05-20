@@ -3,13 +3,13 @@ extends Control
 func _ready():
 	$CanvasLayer/AnimatedSprite2D.play("default")
 
+
 func _process(delta):
 	if Input.is_action_just_pressed("Inventory") and Global.pausable:
 		$CanvasLayer.show()
 		get_tree().paused = true
 		$CanvasLayer/Buttons/ShoesMenuButt.grab_focus()
 
-		
 
 func _on_shoes_menu_butt_pressed():
 	$CanvasLayer/ColorRect.show()
@@ -47,5 +47,4 @@ func _on_l_shoe_button_pressed():
 	$CanvasLayer/Panels/ShoesPanel/TextureRect.texture = $CanvasLayer/GridMenus/ShoesMenu/ShoesGrid/LShoeButton.icon
 
 func _on_m_shoe_button_pressed():
-
 	$CanvasLayer/Panels/ShoesPanel/TextureRect.texture = $CanvasLayer/GridMenus/ShoesMenu/ShoesGrid/MShoeButton.icon

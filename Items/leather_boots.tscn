@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhwt0mcjjd02b"]
+
+[ext_resource type="Texture2D" uid="uid://bsmlnawy3815q" path="res://Assets/Equipment/Boots/Char_Equips-7.png" id="1_bppen"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31kjp"]
+size = Vector2(16, 6)
+
+[node name="LeatherBoots" type="Node2D" groups=["Items"]]
+position = Vector2(3.94655e-13, -14.2191)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+offset_right = 1620.0
+offset_bottom = 2160.0
+texture = ExtResource("1_bppen")
+expand_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.017, 0.017)
+texture = ExtResource("1_bppen")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-3.94655e-13, 10.2191)
+shape = SubResource("RectangleShape2D_31kjp")

@@ -44,7 +44,8 @@ func _on_return_butt_pressed():
 	get_tree().paused = false
 
 func _on_l_shoe_button_pressed():
-	$CanvasLayer/Panels/ShoesPanel/TextureRect.texture = $CanvasLayer/GridMenus/ShoesMenu/ShoesGrid/Button.icon
+	$CanvasLayer/Panels/ShoesPanel/TextureRect.texture = $CanvasLayer/GridMenus/ShoesMenu/ShoesGrid/LShoeButton.icon
 
 func _on_m_shoe_button_pressed():
-	$CanvasLayer/Panels/ShoesPanel/TextureRect.texture = $CanvasLayer/GridMenus/ShoesMenu/ShoesGrid/Button2.icon
+
+	$CanvasLayer/Panels/ShoesPanel/TextureRect.texture = $CanvasLayer/GridMenus/ShoesMenu/ShoesGrid/MShoeButton.icon

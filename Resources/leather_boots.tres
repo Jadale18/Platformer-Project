@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ITEM" load_steps=3 format=3 uid="uid://kolt4h33jx67"]
+
+[ext_resource type="Script" path="res://Resources/item_class.gd" id="1_8yvvr"]
+[ext_resource type="Texture2D" uid="uid://bsmlnawy3815q" path="res://Assets/Equipment/Boots/Char_Equips-7.png" id="1_ceg0n"]
+
+[resource]
+script = ExtResource("1_8yvvr")
+item_name = "Leather Boots"
+item_texture = ExtResource("1_ceg0n")
+hover_text = "These boots do something"

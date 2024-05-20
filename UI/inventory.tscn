@@ -1,9 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1oqnk3x5kcd5"]
+[gd_scene load_steps=19 format=3 uid="uid://d1oqnk3x5kcd5"]
 
 [ext_resource type="Texture2D" uid="uid://cp7p5yy1j762k" path="res://Assets/Player/Char1.png" id="1_dx1k3"]
+[ext_resource type="Script" path="res://UI/inventory.gd" id="1_hswfy"]
 [ext_resource type="Texture2D" uid="uid://cyg503rbrqhu0" path="res://Assets/Player/Char2.png" id="2_jdtrn"]
 [ext_resource type="Texture2D" uid="uid://dvebmf5togxqa" path="res://Assets/Player/Char3.png" id="3_od0n8"]
 [ext_resource type="Texture2D" uid="uid://cs8q3hpb32ett" path="res://Assets/Player/Char4.png" id="4_3npwq"]
+[ext_resource type="Texture2D" uid="uid://bsmlnawy3815q" path="res://Assets/Equipment/Boots/Char_Equips-7.png" id="5_7am21"]
+[ext_resource type="Texture2D" uid="uid://djyi0ccd1rksn" path="res://Assets/Equipment/Boots/Char_Equips-8.png" id="7_0tlui"]
+[ext_resource type="Texture2D" uid="uid://onqwo55v1c7i" path="res://Assets/Equipment/Garments/Char_Equips-5.png" id="8_dqun8"]
+[ext_resource type="Texture2D" uid="uid://bu1ewri2ck3t5" path="res://Assets/Equipment/Garments/Char_Equips-6.png" id="9_py5tt"]
+[ext_resource type="Texture2D" uid="uid://dqw521wdas6de" path="res://Assets/Equipment/Weapons/Char_Equips-1.png" id="10_3umt1"]
+[ext_resource type="Texture2D" uid="uid://bs5udyov0avg6" path="res://Assets/Equipment/Weapons/Char_Equips-2.png" id="11_vgx6i"]
+[ext_resource type="Texture2D" uid="uid://bw08f38qv2itw" path="res://Assets/Equipment/Hats/Char_Equips-3.png" id="12_xly33"]
+[ext_resource type="Texture2D" uid="uid://f4h13cmuvb1v" path="res://Assets/Equipment/Hats/Char_Equips-4.png" id="13_4n32r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0j6n0"]
 atlas = ExtResource("1_dx1k3")
@@ -57,6 +66,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_hswfy")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -64,82 +74,212 @@ grow_vertical = 2
 position = Vector2(281, 303)
 scale = Vector2(0.241975, 0.223611)
 sprite_frames = SubResource("SpriteFrames_f717v")
-frame_progress = 0.876563
+frame_progress = 0.662763
 
-[node name="Panel" type="Panel" parent="CanvasLayer"]
+[node name="Panels" type="Node" parent="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Panels"]
 offset_left = 86.0
 offset_top = 414.0
 offset_right = 126.0
 offset_bottom = 454.0
 
-[node name="Panel2" type="Panel" parent="CanvasLayer"]
+[node name="Panel2" type="Panel" parent="CanvasLayer/Panels"]
 offset_left = 223.0
 offset_top = 86.0
 offset_right = 263.0
 offset_bottom = 126.0
 
-[node name="Panel3" type="Panel" parent="CanvasLayer"]
+[node name="Panel3" type="Panel" parent="CanvasLayer/Panels"]
 offset_left = 63.0
 offset_top = 254.0
 offset_right = 103.0
 offset_bottom = 294.0
 
-[node name="Panel4" type="Panel" parent="CanvasLayer"]
+[node name="Panel4" type="Panel" parent="CanvasLayer/Panels"]
 offset_left = 487.0
 offset_top = 271.0
 offset_right = 527.0
 offset_bottom = 311.0
 
-[node name="MenuButton" type="MenuButton" parent="CanvasLayer"]
-offset_left = 878.0
-offset_top = 139.0
-offset_right = 924.0
-offset_bottom = 170.0
-text = "Shoes
-"
-flat = false
-icon_alignment = 1
-vertical_icon_alignment = 0
-item_count = 1
-popup/item_0/text = "2"
-popup/item_0/id = 1
+[node name="Buttons" type="Node" parent="CanvasLayer"]
 
-[node name="MenuButton2" type="MenuButton" parent="CanvasLayer"]
-offset_left = 875.0
-offset_top = 403.0
+[node name="ShoesMenuButt" type="Button" parent="CanvasLayer/Buttons"]
+offset_left = 869.0
+offset_top = 125.0
+offset_right = 923.0
+offset_bottom = 156.0
+text = "Shoes"
+
+[node name="GarmentsMenuButt" type="Button" parent="CanvasLayer/Buttons"]
+offset_left = 871.0
+offset_top = 286.0
+offset_right = 956.0
+offset_bottom = 317.0
+text = "Garments"
+
+[node name="HatsMenuButt" type="Button" parent="CanvasLayer/Buttons"]
+offset_left = 867.0
+offset_top = 223.0
 offset_right = 921.0
-offset_bottom = 434.0
-text = "Hat"
-flat = false
-item_count = 2
-popup/item_0/text = "1"
-popup/item_0/id = 0
-popup/item_1/text = "2"
-popup/item_1/id = 1
+offset_bottom = 254.0
+text = "Hats"
 
-[node name="MenuButton3" type="MenuButton" parent="CanvasLayer"]
-offset_left = 876.0
-offset_top = 229.0
-offset_right = 922.0
-offset_bottom = 260.0
-text = "Weapon"
-flat = false
-item_count = 2
-popup/item_0/text = "1"
-popup/item_0/id = 0
-popup/item_1/text = "2"
-popup/item_1/id = 1
+[node name="WeaponsMenuButt" type="Button" parent="CanvasLayer/Buttons"]
+offset_left = 869.0
+offset_top = 173.0
+offset_right = 949.0
+offset_bottom = 204.0
+text = "Weapons"
 
-[node name="MenuButton4" type="MenuButton" parent="CanvasLayer"]
-offset_left = 872.0
-offset_top = 296.0
-offset_right = 918.0
-offset_bottom = 327.0
-text = "Garment
-"
-flat = false
-item_count = 2
-popup/item_0/text = "1"
-popup/item_0/id = 0
-popup/item_1/text = "2"
-popup/item_1/id = 1
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -323.0
+offset_right = 2.0
+offset_bottom = 322.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.633757, 0.633757, 0.633757, 1)
+
+[node name="GridMenus" type="Node" parent="CanvasLayer"]
+
+[node name="ShoesMenu" type="Control" parent="CanvasLayer/GridMenus"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 801.0
+offset_top = 70.0
+offset_right = 801.0
+offset_bottom = 70.0
+
+[node name="CloseButton" type="Button" parent="CanvasLayer/GridMenus/ShoesMenu"]
+offset_left = -1.0
+offset_top = -60.0
+offset_right = 17.0
+offset_bottom = -29.0
+text = "X"
+
+[node name="ShoesGrid" type="GridContainer" parent="CanvasLayer/GridMenus/ShoesMenu"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+offset_right = 3244.0
+offset_bottom = 2160.0
+scale = Vector2(0.05, 0.05)
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/GridMenus/ShoesMenu/ShoesGrid"]
+layout_mode = 2
+texture = ExtResource("5_7am21")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/GridMenus/ShoesMenu/ShoesGrid"]
+layout_mode = 2
+texture = ExtResource("7_0tlui")
+
+[node name="GarmentsMenu" type="Control" parent="CanvasLayer/GridMenus"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 801.0
+offset_top = 70.0
+offset_right = 801.0
+offset_bottom = 70.0
+
+[node name="CloseButton" type="Button" parent="CanvasLayer/GridMenus/GarmentsMenu"]
+offset_left = -1.0
+offset_top = -60.0
+offset_right = 17.0
+offset_bottom = -29.0
+text = "X"
+
+[node name="ShoesGrid" type="GridContainer" parent="CanvasLayer/GridMenus/GarmentsMenu"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+offset_right = 3244.0
+offset_bottom = 2160.0
+scale = Vector2(0.05, 0.05)
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/GridMenus/GarmentsMenu/ShoesGrid"]
+layout_mode = 2
+texture = ExtResource("8_dqun8")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/GridMenus/GarmentsMenu/ShoesGrid"]
+layout_mode = 2
+texture = ExtResource("9_py5tt")
+
+[node name="WeaponsMenu" type="Control" parent="CanvasLayer/GridMenus"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 801.0
+offset_top = 70.0
+offset_right = 801.0
+offset_bottom = 70.0
+
+[node name="CloseButton" type="Button" parent="CanvasLayer/GridMenus/WeaponsMenu"]
+offset_left = -1.0
+offset_top = -60.0
+offset_right = 17.0
+offset_bottom = -29.0
+text = "X"
+
+[node name="ShoesGrid" type="GridContainer" parent="CanvasLayer/GridMenus/WeaponsMenu"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+offset_right = 3244.0
+offset_bottom = 2160.0
+scale = Vector2(0.05, 0.05)
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/GridMenus/WeaponsMenu/ShoesGrid"]
+layout_mode = 2
+texture = ExtResource("10_3umt1")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/GridMenus/WeaponsMenu/ShoesGrid"]
+layout_mode = 2
+texture = ExtResource("11_vgx6i")
+
+[node name="HatsMenu" type="Control" parent="CanvasLayer/GridMenus"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 801.0
+offset_top = 70.0
+offset_right = 801.0
+offset_bottom = 70.0
+
+[node name="CloseButton" type="Button" parent="CanvasLayer/GridMenus/HatsMenu"]
+offset_left = -1.0
+offset_top = -60.0
+offset_right = 17.0
+offset_bottom = -29.0
+text = "X"
+
+[node name="ShoesGrid" type="GridContainer" parent="CanvasLayer/GridMenus/HatsMenu"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+offset_right = 3244.0
+offset_bottom = 2160.0
+scale = Vector2(0.05, 0.05)
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/GridMenus/HatsMenu/ShoesGrid"]
+layout_mode = 2
+texture = ExtResource("12_xly33")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/GridMenus/HatsMenu/ShoesGrid"]
+layout_mode = 2
+texture = ExtResource("13_4n32r")
+
+[connection signal="pressed" from="CanvasLayer/Buttons/ShoesMenuButt" to="." method="_on_shoes_menu_butt_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/GarmentsMenuButt" to="." method="_on_garments_menu_butt_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/HatsMenuButt" to="." method="_on_hats_menu_butt_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/WeaponsMenuButt" to="." method="_on_weapons_menu_butt_pressed"]
+[connection signal="pressed" from="CanvasLayer/GridMenus/ShoesMenu/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GridMenus/GarmentsMenu/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GridMenus/WeaponsMenu/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GridMenus/HatsMenu/CloseButton" to="." method="_on_close_button_pressed"]

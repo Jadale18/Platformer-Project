@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d1oqnk3x5kcd5"]
+[gd_scene load_steps=20 format=3 uid="uid://d1oqnk3x5kcd5"]
 
 [ext_resource type="Texture2D" uid="uid://cp7p5yy1j762k" path="res://Assets/Player/Char1.png" id="1_dx1k3"]
 [ext_resource type="Script" path="res://UI/inventory.gd" id="1_hswfy"]
@@ -59,6 +59,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p02eq"]
+bg_color = Color(0.473976, 0.473976, 0.473976, 1)
+
 [node name="Inventory" type="Control"]
 process_mode = 3
 layout_mode = 3
@@ -90,26 +93,36 @@ frame_progress = 0.662763
 layout_mode = 3
 anchors_preset = 0
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Panels"]
+[node name="ShoesPanel" type="Panel" parent="CanvasLayer/Panels"]
 show_behind_parent = true
+layout_mode = 0
 offset_left = 86.0
 offset_top = 414.0
 offset_right = 126.0
 offset_bottom = 454.0
 
-[node name="Panel2" type="Panel" parent="CanvasLayer/Panels"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panels/ShoesPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+
+[node name="HatPanel" type="Panel" parent="CanvasLayer/Panels"]
+layout_mode = 0
 offset_left = 223.0
 offset_top = 86.0
 offset_right = 263.0
 offset_bottom = 126.0
 
-[node name="Panel3" type="Panel" parent="CanvasLayer/Panels"]
+[node name="GarmentPanel" type="Panel" parent="CanvasLayer/Panels"]
+layout_mode = 0
 offset_left = 63.0
 offset_top = 254.0
 offset_right = 103.0
 offset_bottom = 294.0
 
-[node name="Panel4" type="Panel" parent="CanvasLayer/Panels"]
+[node name="WeaponPanel" type="Panel" parent="CanvasLayer/Panels"]
+layout_mode = 0
 offset_left = 487.0
 offset_top = 271.0
 offset_right = 527.0
@@ -120,6 +133,7 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="ShoesMenuButt" type="Button" parent="CanvasLayer/Buttons"]
+layout_mode = 0
 offset_left = 869.0
 offset_top = 125.0
 offset_right = 923.0
@@ -127,6 +141,7 @@ offset_bottom = 156.0
 text = "Shoes"
 
 [node name="GarmentsMenuButt" type="Button" parent="CanvasLayer/Buttons"]
+layout_mode = 0
 offset_left = 871.0
 offset_top = 286.0
 offset_right = 956.0
@@ -134,6 +149,7 @@ offset_bottom = 317.0
 text = "Garments"
 
 [node name="HatsMenuButt" type="Button" parent="CanvasLayer/Buttons"]
+layout_mode = 0
 offset_left = 867.0
 offset_top = 223.0
 offset_right = 921.0
@@ -141,6 +157,7 @@ offset_bottom = 254.0
 text = "Hats"
 
 [node name="WeaponsMenuButt" type="Button" parent="CanvasLayer/Buttons"]
+layout_mode = 0
 offset_left = 869.0
 offset_top = 173.0
 offset_right = 949.0
@@ -148,6 +165,7 @@ offset_bottom = 204.0
 text = "Weapons"
 
 [node name="ReturnButt" type="Button" parent="CanvasLayer/Buttons"]
+layout_mode = 0
 offset_left = 27.0
 offset_top = 18.0
 offset_right = 88.0
@@ -197,15 +215,28 @@ layout_mode = 1
 offset_right = 3244.0
 offset_bottom = 2160.0
 scale = Vector2(0.05, 0.05)
+theme_override_constants/h_separation = 80
+theme_override_constants/v_separation = 80
 columns = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/GridMenus/ShoesMenu/ShoesGrid"]
+[node name="LShoeButton" type="Button" parent="CanvasLayer/GridMenus/ShoesMenu/ShoesGrid"]
 layout_mode = 2
-texture = ExtResource("5_7am21")
+theme_override_font_sizes/font_size = 300
+theme_override_styles/focus = SubResource("StyleBoxFlat_p02eq")
+text = "Leather"
+icon = ExtResource("5_7am21")
+flat = true
+icon_alignment = 1
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/GridMenus/ShoesMenu/ShoesGrid"]
+[node name="MShoeButton" type="Button" parent="CanvasLayer/GridMenus/ShoesMenu/ShoesGrid"]
 layout_mode = 2
-texture = ExtResource("7_0tlui")
+theme_override_font_sizes/font_size = 300
+theme_override_styles/focus = SubResource("StyleBoxFlat_p02eq")
+text = "Metal
+"
+icon = ExtResource("7_0tlui")
+flat = true
+icon_alignment = 1
 
 [node name="GarmentsMenu" type="Control" parent="CanvasLayer/GridMenus"]
 visible = false
@@ -224,7 +255,7 @@ offset_right = 17.0
 offset_bottom = -29.0
 text = "X"
 
-[node name="ShoesGrid" type="GridContainer" parent="CanvasLayer/GridMenus/GarmentsMenu"]
+[node name="GarmentsGrid" type="GridContainer" parent="CanvasLayer/GridMenus/GarmentsMenu"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
 offset_right = 3244.0
@@ -232,13 +263,23 @@ offset_bottom = 2160.0
 scale = Vector2(0.05, 0.05)
 columns = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/GridMenus/GarmentsMenu/ShoesGrid"]
+[node name="LGarmentButton" type="Button" parent="CanvasLayer/GridMenus/GarmentsMenu/GarmentsGrid"]
 layout_mode = 2
-texture = ExtResource("8_dqun8")
+theme_override_font_sizes/font_size = 300
+theme_override_styles/focus = SubResource("StyleBoxFlat_p02eq")
+text = "Leather"
+icon = ExtResource("8_dqun8")
+flat = true
+icon_alignment = 1
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/GridMenus/GarmentsMenu/ShoesGrid"]
+[node name="MGarmentButton" type="Button" parent="CanvasLayer/GridMenus/GarmentsMenu/GarmentsGrid"]
 layout_mode = 2
-texture = ExtResource("9_py5tt")
+theme_override_font_sizes/font_size = 300
+theme_override_styles/focus = SubResource("StyleBoxFlat_p02eq")
+text = "Metal"
+icon = ExtResource("9_py5tt")
+flat = true
+icon_alignment = 1
 
 [node name="WeaponsMenu" type="Control" parent="CanvasLayer/GridMenus"]
 visible = false
@@ -312,6 +353,8 @@ texture = ExtResource("13_4n32r")
 [connection signal="pressed" from="CanvasLayer/Buttons/WeaponsMenuButt" to="." method="_on_weapons_menu_butt_pressed"]
 [connection signal="pressed" from="CanvasLayer/Buttons/ReturnButt" to="." method="_on_return_butt_pressed"]
 [connection signal="pressed" from="CanvasLayer/GridMenus/ShoesMenu/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GridMenus/ShoesMenu/ShoesGrid/LShoeButton" to="." method="_on_l_shoe_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GridMenus/ShoesMenu/ShoesGrid/MShoeButton" to="." method="_on_m_shoe_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/GridMenus/GarmentsMenu/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/GridMenus/WeaponsMenu/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/GridMenus/HatsMenu/CloseButton" to="." method="_on_close_button_pressed"]

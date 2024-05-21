@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_31kjp"]
 size = Vector2(16, 6)
 
-[node name="LeatherBoots" type="Node2D" groups=["Items"]]
+[node name="LeatherBoots" type="Node2D" groups=["Items", "Shoes"]]
 position = Vector2(3.94655e-13, -14.2191)
 
 [node name="TextureRect" type="TextureRect" parent="."]

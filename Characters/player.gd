@@ -99,7 +99,7 @@ func _on_area_2d_area_entered(area):
 	elif area.name == 'Cutscene':
 		pass
 	elif area.get_parent().is_in_group("Items"):
-		print('item')
+		area.get_parent().reparent(Inventory.get_child(0))
 	else:
 		get_tree().root.add_child(Global.battle_scene)
 		Global.player_pos = global_position

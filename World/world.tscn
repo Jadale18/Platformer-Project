@@ -1,9 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://cijhqdipxsakw"]
+[gd_scene load_steps=15 format=3 uid="uid://cijhqdipxsakw"]
 
 [ext_resource type="PackedScene" uid="uid://17uvdl8q4dts" path="res://Characters/player.tscn" id="1_ek4dg"]
 [ext_resource type="Script" path="res://World/world.gd" id="1_otnw3"]
 [ext_resource type="PackedScene" uid="uid://doxuqigm16ink" path="res://World/spikes.tscn" id="3_hrmun"]
-[ext_resource type="PackedScene" uid="uid://dhwt0mcjjd02b" path="res://Items/leather_boots.tscn" id="4_gk2a0"]
+[ext_resource type="PackedScene" uid="uid://dhwt0mcjjd02b" path="res://Items/Shoes/leather_boots.tscn" id="4_4qic6"]
+[ext_resource type="PackedScene" uid="uid://bxx5txq607ekc" path="res://Items/Shoes/metal_boots.tscn" id="5_gphi5"]
+[ext_resource type="PackedScene" uid="uid://csgymgq16hdqr" path="res://Items/Garments/leather_garment.tscn" id="6_y0p3k"]
+[ext_resource type="PackedScene" uid="uid://7eho3ueucpqo" path="res://Items/Garments/metal_garment.tscn" id="7_6gvo1"]
+[ext_resource type="PackedScene" uid="uid://58edbnr7kl8o" path="res://Items/Hats/leather_hat.tscn" id="8_qh2kg"]
+[ext_resource type="PackedScene" uid="uid://ba5qepwb62amc" path="res://Items/Hats/metal_hat.tscn" id="9_xil83"]
+[ext_resource type="PackedScene" uid="uid://b8xm3voiw42dd" path="res://Items/Weapons/wood_sword.tscn" id="10_7qgvk"]
+[ext_resource type="PackedScene" uid="uid://xgkyi5wasjcv" path="res://Items/Weapons/metal_sword.tscn" id="11_osj4u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8fjl"]
 size = Vector2(19713, 1028)
@@ -91,8 +98,31 @@ libraries = {
 "": SubResource("AnimationLibrary_ev4h1")
 }
 
-[node name="LeatherBoots" parent="." instance=ExtResource("4_gk2a0")]
+[node name="Items" type="Node2D" parent="."]
+
+[node name="LeatherBoots" parent="Items" instance=ExtResource("4_4qic6")]
 position = Vector2(320, 496)
+
+[node name="MetalBoots" parent="Items" instance=ExtResource("5_gphi5")]
+position = Vector2(368, 497.781)
+
+[node name="LeatherGarment" parent="Items" instance=ExtResource("6_y0p3k")]
+position = Vector2(432, 505.781)
+
+[node name="MetalGarment" parent="Items" instance=ExtResource("7_6gvo1")]
+position = Vector2(480, 505.781)
+
+[node name="LeatherHat" parent="Items" instance=ExtResource("8_qh2kg")]
+position = Vector2(528, 505.781)
+
+[node name="MetalHat" parent="Items" instance=ExtResource("9_xil83")]
+position = Vector2(568, 505.781)
+
+[node name="WoodSword" parent="Items" instance=ExtResource("10_7qgvk")]
+position = Vector2(272, 496)
+
+[node name="MetalSword" parent="Items" instance=ExtResource("11_osj4u")]
+position = Vector2(240, 497.781)
 
 [connection signal="area_entered" from="Cutscene" to="." method="_on_cutscene_area_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

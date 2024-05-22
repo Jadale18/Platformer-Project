@@ -6,12 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://dvebmf5togxqa" path="res://Assets/Player/Char3.png" id="3_od0n8"]
 [ext_resource type="Texture2D" uid="uid://cs8q3hpb32ett" path="res://Assets/Player/Char4.png" id="4_3npwq"]
 [ext_resource type="Texture2D" uid="uid://bsmlnawy3815q" path="res://Assets/Equipment/Boots/Char_Equips-7.png" id="5_7am21"]
-[ext_resource type="Texture2D" uid="uid://onqwo55v1c7i" path="res://Assets/Equipment/Garments/Char_Equips-5.png" id="8_dqun8"]
-[ext_resource type="Texture2D" uid="uid://bu1ewri2ck3t5" path="res://Assets/Equipment/Garments/Char_Equips-6.png" id="9_py5tt"]
-[ext_resource type="Texture2D" uid="uid://dqw521wdas6de" path="res://Assets/Equipment/Weapons/Char_Equips-1.png" id="10_3umt1"]
-[ext_resource type="Texture2D" uid="uid://bs5udyov0avg6" path="res://Assets/Equipment/Weapons/Char_Equips-2.png" id="11_vgx6i"]
-[ext_resource type="Texture2D" uid="uid://bw08f38qv2itw" path="res://Assets/Equipment/Hats/Char_Equips-3.png" id="12_xly33"]
-[ext_resource type="Texture2D" uid="uid://f4h13cmuvb1v" path="res://Assets/Equipment/Hats/Char_Equips-4.png" id="13_4n32r"]
+[ext_resource type="Texture2D" uid="uid://djyi0ccd1rksn" path="res://Assets/Equipment/Boots/Char_Equips-8.png" id="7_iev65"]
+[ext_resource type="Texture2D" uid="uid://onqwo55v1c7i" path="res://Assets/Equipment/Garments/Char_Equips-5.png" id="8_i8bkd"]
+[ext_resource type="Texture2D" uid="uid://bu1ewri2ck3t5" path="res://Assets/Equipment/Garments/Char_Equips-6.png" id="9_4ni7q"]
+[ext_resource type="Texture2D" uid="uid://f4h13cmuvb1v" path="res://Assets/Equipment/Hats/Char_Equips-4.png" id="10_6ud44"]
+[ext_resource type="Texture2D" uid="uid://dqw521wdas6de" path="res://Assets/Equipment/Weapons/Char_Equips-1.png" id="10_lgq7s"]
+[ext_resource type="Texture2D" uid="uid://bw08f38qv2itw" path="res://Assets/Equipment/Hats/Char_Equips-3.png" id="11_rqnai"]
+[ext_resource type="Texture2D" uid="uid://bs5udyov0avg6" path="res://Assets/Equipment/Weapons/Char_Equips-2.png" id="11_sm41y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0j6n0"]
 atlas = ExtResource("1_dx1k3")
@@ -60,9 +61,6 @@ animations = [{
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0m4k"]
 bg_color = Color(0.47451, 0.47451, 0.47451, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p02eq"]
-bg_color = Color(0.473976, 0.473976, 0.473976, 1)
 
 [node name="Inventory" type="Control"]
 process_mode = 3
@@ -119,6 +117,12 @@ offset_top = 86.0
 offset_right = 263.0
 offset_bottom = 126.0
 
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panels/HatPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+
 [node name="GarmentPanel" type="Panel" parent="CanvasLayer/Panels"]
 layout_mode = 0
 offset_left = 63.0
@@ -126,12 +130,24 @@ offset_top = 254.0
 offset_right = 103.0
 offset_bottom = 294.0
 
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panels/GarmentPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+
 [node name="WeaponPanel" type="Panel" parent="CanvasLayer/Panels"]
 layout_mode = 0
 offset_left = 487.0
 offset_top = 271.0
 offset_right = 527.0
 offset_bottom = 311.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panels/WeaponPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
 
 [node name="Buttons" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -236,6 +252,18 @@ icon = ExtResource("5_7am21")
 flat = true
 icon_alignment = 1
 
+[node name="MetalBootsButton" type="Button" parent="CanvasLayer/GridMenus/ShoesMenu/ShoesGrid"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.47451, 0.47451, 0.47451, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 300
+theme_override_styles/focus = SubResource("StyleBoxFlat_c0m4k")
+disabled = true
+text = "Metal"
+icon = ExtResource("7_iev65")
+flat = true
+icon_alignment = 1
+
 [node name="GarmentsMenu" type="Control" parent="CanvasLayer/GridMenus"]
 visible = false
 layout_mode = 3
@@ -261,23 +289,31 @@ offset_bottom = 2160.0
 scale = Vector2(0.05, 0.05)
 columns = 2
 
-[node name="LGarmentButton" type="Button" parent="CanvasLayer/GridMenus/GarmentsMenu/GarmentsGrid"]
+[node name="LeatherGarmentButton" type="Button" parent="CanvasLayer/GridMenus/GarmentsMenu/GarmentsGrid"]
 layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.47451, 0.47451, 0.47451, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 300
-theme_override_styles/focus = SubResource("StyleBoxFlat_p02eq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_c0m4k")
+disabled = true
 text = "Leather"
-icon = ExtResource("8_dqun8")
+icon = ExtResource("8_i8bkd")
 flat = true
 icon_alignment = 1
+vertical_icon_alignment = 2
 
-[node name="MGarmentButton" type="Button" parent="CanvasLayer/GridMenus/GarmentsMenu/GarmentsGrid"]
+[node name="MetalGarmentButton" type="Button" parent="CanvasLayer/GridMenus/GarmentsMenu/GarmentsGrid"]
 layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.47451, 0.47451, 0.47451, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 300
-theme_override_styles/focus = SubResource("StyleBoxFlat_p02eq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_c0m4k")
+disabled = true
 text = "Metal"
-icon = ExtResource("9_py5tt")
+icon = ExtResource("9_4ni7q")
 flat = true
 icon_alignment = 1
+vertical_icon_alignment = 2
 
 [node name="WeaponsMenu" type="Control" parent="CanvasLayer/GridMenus"]
 visible = false
@@ -296,7 +332,7 @@ offset_right = 17.0
 offset_bottom = -29.0
 text = "X"
 
-[node name="ShoesGrid" type="GridContainer" parent="CanvasLayer/GridMenus/WeaponsMenu"]
+[node name="WeaponsGrid" type="GridContainer" parent="CanvasLayer/GridMenus/WeaponsMenu"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
 offset_right = 3244.0
@@ -304,13 +340,31 @@ offset_bottom = 2160.0
 scale = Vector2(0.05, 0.05)
 columns = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/GridMenus/WeaponsMenu/ShoesGrid"]
+[node name="WoodSwordButton" type="Button" parent="CanvasLayer/GridMenus/WeaponsMenu/WeaponsGrid"]
 layout_mode = 2
-texture = ExtResource("10_3umt1")
+theme_override_colors/font_disabled_color = Color(0.47451, 0.47451, 0.47451, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 300
+theme_override_styles/focus = SubResource("StyleBoxFlat_c0m4k")
+disabled = true
+text = "Wood Sword"
+icon = ExtResource("10_lgq7s")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 2
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/GridMenus/WeaponsMenu/ShoesGrid"]
+[node name="MetalSwordButton" type="Button" parent="CanvasLayer/GridMenus/WeaponsMenu/WeaponsGrid"]
 layout_mode = 2
-texture = ExtResource("11_vgx6i")
+theme_override_colors/font_disabled_color = Color(0.47451, 0.47451, 0.47451, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 300
+theme_override_styles/focus = SubResource("StyleBoxFlat_c0m4k")
+disabled = true
+text = "Metal Sword"
+icon = ExtResource("11_sm41y")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 2
 
 [node name="HatsMenu" type="Control" parent="CanvasLayer/GridMenus"]
 visible = false
@@ -329,7 +383,7 @@ offset_right = 17.0
 offset_bottom = -29.0
 text = "X"
 
-[node name="ShoesGrid" type="GridContainer" parent="CanvasLayer/GridMenus/HatsMenu"]
+[node name="HatsGrid" type="GridContainer" parent="CanvasLayer/GridMenus/HatsMenu"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
 offset_right = 3244.0
@@ -337,13 +391,31 @@ offset_bottom = 2160.0
 scale = Vector2(0.05, 0.05)
 columns = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/GridMenus/HatsMenu/ShoesGrid"]
+[node name="LeatherHatButton" type="Button" parent="CanvasLayer/GridMenus/HatsMenu/HatsGrid"]
 layout_mode = 2
-texture = ExtResource("12_xly33")
+theme_override_colors/font_disabled_color = Color(0.47451, 0.47451, 0.47451, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 300
+theme_override_styles/focus = SubResource("StyleBoxFlat_c0m4k")
+disabled = true
+text = "Leather"
+icon = ExtResource("10_6ud44")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 2
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/GridMenus/HatsMenu/ShoesGrid"]
+[node name="MetalHatButton" type="Button" parent="CanvasLayer/GridMenus/HatsMenu/HatsGrid"]
 layout_mode = 2
-texture = ExtResource("13_4n32r")
+theme_override_colors/font_disabled_color = Color(0.47451, 0.47451, 0.47451, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 300
+theme_override_styles/focus = SubResource("StyleBoxFlat_c0m4k")
+disabled = true
+text = "Metal"
+icon = ExtResource("11_rqnai")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 2
 
 [connection signal="child_entered_tree" from="Items" to="." method="_on_items_child_entered_tree"]
 [connection signal="pressed" from="CanvasLayer/Buttons/ShoesMenuButt" to="." method="_on_shoes_menu_butt_pressed"]
@@ -353,6 +425,13 @@ texture = ExtResource("13_4n32r")
 [connection signal="pressed" from="CanvasLayer/Buttons/ReturnButt" to="." method="_on_return_butt_pressed"]
 [connection signal="pressed" from="CanvasLayer/GridMenus/ShoesMenu/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/GridMenus/ShoesMenu/ShoesGrid/LeatherBootsButton" to="." method="_on_leather_shoe_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GridMenus/ShoesMenu/ShoesGrid/MetalBootsButton" to="." method="_on_metal_boots_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/GridMenus/GarmentsMenu/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GridMenus/GarmentsMenu/GarmentsGrid/LeatherGarmentButton" to="." method="_on_leather_garment_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GridMenus/GarmentsMenu/GarmentsGrid/MetalGarmentButton" to="." method="_on_metal_garment_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/GridMenus/WeaponsMenu/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GridMenus/WeaponsMenu/WeaponsGrid/WoodSwordButton" to="." method="_on_wood_sword_pressed"]
+[connection signal="pressed" from="CanvasLayer/GridMenus/WeaponsMenu/WeaponsGrid/MetalSwordButton" to="." method="_on_metal_sword_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/GridMenus/HatsMenu/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GridMenus/HatsMenu/HatsGrid/LeatherHatButton" to="." method="_on_leather_hat_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/GridMenus/HatsMenu/HatsGrid/MetalHatButton" to="." method="_on_metal_hat_button_pressed"]

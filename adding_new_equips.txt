@@ -1,0 +1,7 @@
+1. Duplicate scene of existing equipment type
+2. Rename scene and node to equipment name
+3. Change Sprite to new image
+4. Add button in inventory menu with Name + Button
+5. Connect button on pressed to set panel and change current equip
+6. Change Button icon, name, and popup
+7. Add effects

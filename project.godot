@@ -21,10 +21,6 @@ Global="*res://global.gd"
 PauseMenu="*res://UI/pause_menu.tscn"
 Inventory="*res://UI/inventory.tscn"
 
-[debug]
-
-settings/stdout/print_fps=true
-
 [display]
 
 window/stretch/mode="canvas_items"

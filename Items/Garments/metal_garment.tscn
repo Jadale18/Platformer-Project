@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://7eho3ueucpqo"]
+
+[ext_resource type="Texture2D" uid="uid://bu1ewri2ck3t5" path="res://Assets/Equipment/Garments/Char_Equips-6.png" id="1_hx4vp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31kjp"]
+size = Vector2(16, 6)
+
+[node name="MetalGarment" type="Node2D" groups=["Garments", "Items"]]
+position = Vector2(3.94655e-13, -14.2191)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+offset_right = 1620.0
+offset_bottom = 2160.0
+texture = ExtResource("1_hx4vp")
+expand_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3, 8.2191)
+scale = Vector2(0.017, 0.017)
+texture = ExtResource("1_hx4vp")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-3.94655e-13, 10.2191)
+shape = SubResource("RectangleShape2D_31kjp")

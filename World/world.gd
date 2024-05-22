@@ -11,9 +11,15 @@ func _ready():
 	$StaticBody2D2/CollisionPolygon2D/Polygon2D.polygon = $StaticBody2D2/CollisionPolygon2D.polygon
 	$Player.global_position = Global.player_pos
 	
+	# Make enemies despawn after battle
 	if Global.spawn_enemies:
 		enemy_scene.position = Vector2(744,512)
 		add_child(enemy_scene)
+	
+	# Make sure items don't spawn again after being picked up
+	for item in $Items.get_children():
+		if item.name in Inventory.unlocked_item_list:
+			item.queue_free()
 
 
 func _on_cutscene_area_entered(area):

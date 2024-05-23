@@ -11,6 +11,11 @@ var unlocked_item_list = []
 
 var last_focused
 
+var double_jump = true
+var dash = true
+var wall_jump = true
+
+
 func _ready():
 	$CanvasLayer/AnimatedSprite2D.play("default")
 

@@ -1,9 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://cijhqdipxsakw"]
+[gd_scene load_steps=18 format=3 uid="uid://cijhqdipxsakw"]
 
 [ext_resource type="PackedScene" uid="uid://17uvdl8q4dts" path="res://Characters/player.tscn" id="1_ek4dg"]
 [ext_resource type="Script" path="res://World/world.gd" id="1_otnw3"]
+[ext_resource type="Texture2D" uid="uid://cugjecamlog4v" path="res://Assets/World/Untitled_Artwork-1.png" id="2_gt2ms"]
+[ext_resource type="Texture2D" uid="uid://l643j4cml3sc" path="res://Assets/World/Untitled_Artwork-1 2.png" id="3_11w2s"]
 [ext_resource type="PackedScene" uid="uid://doxuqigm16ink" path="res://World/spikes.tscn" id="3_hrmun"]
 [ext_resource type="PackedScene" uid="uid://dhwt0mcjjd02b" path="res://Items/Shoes/leather_boots.tscn" id="4_4qic6"]
+[ext_resource type="Texture2D" uid="uid://dlb8svb44wj3k" path="res://Assets/World/Untitled_Artwork-2 3.png" id="4_5jekl"]
 [ext_resource type="PackedScene" uid="uid://bxx5txq607ekc" path="res://Items/Shoes/metal_boots.tscn" id="5_gphi5"]
 [ext_resource type="PackedScene" uid="uid://csgymgq16hdqr" path="res://Items/Garments/leather_garment.tscn" id="6_y0p3k"]
 [ext_resource type="PackedScene" uid="uid://7eho3ueucpqo" path="res://Items/Garments/metal_garment.tscn" id="7_6gvo1"]
@@ -38,6 +41,38 @@ _data = {
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_otnw3")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="BG" type="TextureRect" parent="CanvasLayer2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_gt2ms")
+expand_mode = 1
+
+[node name="Clouds" type="TextureRect" parent="CanvasLayer2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_11w2s")
+expand_mode = 1
+
+[node name="Clouds2" type="TextureRect" parent="CanvasLayer2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1176.0
+offset_right = -1176.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_5jekl")
+expand_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("1_ek4dg")]
 position = Vector2(182, 512)

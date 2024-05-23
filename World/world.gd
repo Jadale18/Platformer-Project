@@ -30,3 +30,15 @@ func _on_cutscene_area_entered(area):
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Cutscene":
 		$CanvasLayer.hide()
+
+func _process(delta):
+	move_clouds(delta)
+
+func move_clouds(delta):
+	$CanvasLayer2/Clouds.position.x += 50 * delta
+	$CanvasLayer2/Clouds2.position.x += 50 * delta
+	
+	if $CanvasLayer2/Clouds.position.x >= 1152:
+		$CanvasLayer2/Clouds.position.x -= 2304
+	if $CanvasLayer2/Clouds2.position.x >= 1152:
+		$CanvasLayer2/Clouds2.position.x -= 2304

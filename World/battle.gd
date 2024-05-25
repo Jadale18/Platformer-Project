@@ -2,7 +2,9 @@ extends Node2D
 
 @onready var global = Global
 @onready var player_health = global.player_health
-var enemy_health = 10
+@onready var enemy_health = BattleInfo.enemy_health
+@onready var enemy_defense = BattleInfo.enemy_defense
+
 var states = ['player_turn', 'enemy_turn']
 var state = states[0]
 
@@ -15,7 +17,7 @@ func _process(delta):
 	$EnemyHealth.value = enemy_health
 	
 	if state == 'enemy_turn':
-		enemy_turn()
+		enemy_turn(BattleInfo.enemy_attacks())
 	
 	if enemy_health <= 0:
 		win()
@@ -23,8 +25,12 @@ func _process(delta):
 		lose()
 
 
-func enemy_turn():
-	player_health -= 15
+func enemy_turn(attack):
+	print(attack[0])
+	print(enemy_defense)
+	player_health -= attack[1]
+	if attack[2] == 'Defend':
+		enemy_defense += 1
 	state = states[0]
 
 func win():
@@ -50,7 +56,7 @@ func _on_scram_pressed():
 	Global.world_scene = preload('res://World/world.tscn').instantiate()
 
 func _on_attack_pressed():
-	enemy_health -= global.player_attack
+	enemy_health -= (global.player_attack - enemy_defense)
 	state = states [1]
 
 func _on_defend_pressed():

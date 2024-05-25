@@ -21,6 +21,7 @@ Global="*res://Autoloads/global.gd"
 PauseMenu="*res://UI/pause_menu.tscn"
 Inventory="*res://UI/inventory.tscn"
 ItemAbilities="*res://Autoloads/item_abilities.gd"
+BattleInfo="*res://Autoloads/battle_info.tscn"
 
 [display]
 

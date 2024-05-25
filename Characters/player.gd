@@ -41,7 +41,7 @@ func _physics_process(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
 	handle_axis(direction, delta)
 	handle_anims()
-	dash(direction)
+	dash()
 	
 	move_and_slide()
 
@@ -118,7 +118,7 @@ func apply_gravity(delta):
 	if not is_on_floor() and moving:
 		velocity.y += gravity * delta
 
-func dash(direction):
+func dash():
 	if is_on_floor():
 		dashable = true
 	if dashing:
@@ -150,6 +150,8 @@ func _on_area_2d_area_entered(area):
 	elif area.get_parent().is_in_group("Items"):
 		area.get_parent().reparent(Inventory.get_child(0))
 	else:
+		BattleInfo.current_enemy = area.get_parent().name
+		BattleInfo.set_values()
 		get_tree().root.add_child(Global.battle_scene)
 		Global.player_pos = global_position
 		Global.spawn_enemies = false

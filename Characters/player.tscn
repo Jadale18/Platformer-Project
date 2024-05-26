@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://17uvdl8q4dts"]
+[gd_scene load_steps=67 format=3 uid="uid://17uvdl8q4dts"]
 
 [ext_resource type="Script" path="res://Characters/player.gd" id="1_6ey2k"]
 [ext_resource type="Texture2D" uid="uid://c6qfje77jmirl" path="res://Assets/Player/CharJumpBody.png" id="2_01ykq"]
@@ -10,11 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://dpxx5pkqbe6aa" path="res://Assets/Player/CharFallBody.png" id="6_mwswi"]
 [ext_resource type="Texture2D" uid="uid://ca6fl6ushepvo" path="res://Assets/Player/Char_Legs-1.png" id="7_51nbo"]
 [ext_resource type="Texture2D" uid="uid://c63m1jpju0ptj" path="res://Assets/Player/Char_Legs-2.png" id="8_r5eu6"]
+[ext_resource type="Texture2D" uid="uid://onqwo55v1c7i" path="res://Assets/Equipment/Garments/Char_Equips-5.png" id="11_54wmx"]
+[ext_resource type="Texture2D" uid="uid://f4h13cmuvb1v" path="res://Assets/Equipment/Hats/Char_Equips-4.png" id="12_kbvbi"]
+[ext_resource type="Texture2D" uid="uid://dqw521wdas6de" path="res://Assets/Equipment/Weapons/Char_Equips-1.png" id="13_j4tye"]
 
-[sub_resource type="Animation" id="Animation_5r3sw"]
-resource_name = "Walk"
-length = 0.75
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_ant14"]
+resource_name = "Dash"
+length = 0.4
 step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -23,10 +25,10 @@ tracks/0/path = NodePath("Flippables/LeftFoot:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.19, 0.34, 0.42, 0.56, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.01, 0.02, 0.08, 0.31),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(4.14677, 10.2385), Vector2(8.1919, 6.35964), Vector2(4.14677, 10.2385), Vector2(-4.147, 10.239), Vector2(-11.9513, 6.7112), Vector2(4.14677, 10.2385)]
+"values": [Vector2(4.14677, 10.2385), Vector2(1.59949, 9.75791), Vector2(-0.803607, 9.80597), Vector2(-10.7044, 9.95015), Vector2(4.14677, 10.2385)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -35,10 +37,10 @@ tracks/1/path = NodePath("Flippables/LeftFoot:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.19, 0.34, 0.42, 0.56, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.01, 0.02, 0.08, 0.31),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, -0.664039, 0.0, 0.0, 0.716213, 0.0]
+"values": [0.0, 0.175569, 0.413861, 0.868807, 0.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -47,10 +49,10 @@ tracks/2/path = NodePath("Flippables/RightFoot:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.19, 0.33, 0.44, 0.56, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.02, 0.08, 0.31),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-4.42842, 10.4773), Vector2(-12.6059, 7.07458), Vector2(-4.94549, 8.736), Vector2(3.60788, 8.6821), Vector2(8.31319, 6.47479), Vector2(-4.42842, 10.4773)]
+"values": [Vector2(-4.42842, 10.4773), Vector2(-8.12919, 8.55483), Vector2(-15.5788, 3.36414), Vector2(-4.42842, 10.4773)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -59,114 +61,10 @@ tracks/3/path = NodePath("Flippables/RightFoot:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.19, 0.34, 0.42, 0.56, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.02, 0.08, 0.31),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.685864, 0.0, 0.0, -0.620018, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_bk0n2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flippables/LeftFoot:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(4.147, 10.239)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Flippables/LeftFoot:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Flippables/RightFoot:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-4.42842, 10.4773)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Flippables/RightFoot:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_4g1to"]
-resource_name = "Jump"
-length = 0.5
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flippables/LeftFoot:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.26),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(4.14677, 10.2385), Vector2(4.14677, 10.2385)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Flippables/LeftFoot:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.14, 0.26),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.66501, 0.66501]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Flippables/RightFoot:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.26),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-4.428, 10.477), Vector2(-4.428, 10.477)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Flippables/RightFoot:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.14, 0.26),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.61731, 0.61731]
+"values": [0.0, 0.526728, 1.40929, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_s4y7v"]
@@ -222,6 +120,212 @@ tracks/3/keys = {
 "values": [0.823057, 0.659924, 0.823057]
 }
 
+[sub_resource type="Animation" id="Animation_4g1to"]
+resource_name = "Jump"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flippables/LeftFoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(4.14677, 10.2385), Vector2(4.14677, 10.2385)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flippables/LeftFoot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.14, 0.26),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.66501, 0.66501]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flippables/RightFoot:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.26),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-4.428, 10.477), Vector2(-4.428, 10.477)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Flippables/RightFoot:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.14, 0.26),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.61731, 0.61731]
+}
+
+[sub_resource type="Animation" id="Animation_bk0n2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flippables/LeftFoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4.147, 10.239)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flippables/LeftFoot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flippables/RightFoot:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4.42842, 10.4773)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Flippables/RightFoot:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Flippables/Garment:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.017, 0.017)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Flippables/Garment:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.0828972, 0.207245)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Flippables/Hat:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.290146, 0.290142)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Flippables/Hat:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.017, 0.017)]
+}
+
+[sub_resource type="Animation" id="Animation_5r3sw"]
+resource_name = "Walk"
+length = 0.75
+loop_mode = 1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flippables/LeftFoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19, 0.34, 0.42, 0.56, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(4.14677, 10.2385), Vector2(8.1919, 6.35964), Vector2(4.14677, 10.2385), Vector2(-4.147, 10.239), Vector2(-11.9513, 6.7112), Vector2(4.14677, 10.2385)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flippables/LeftFoot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.19, 0.34, 0.42, 0.56, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.664039, 0.0, 0.0, 0.716213, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flippables/RightFoot:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.19, 0.33, 0.44, 0.56, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-4.42842, 10.4773), Vector2(-12.6059, 7.07458), Vector2(-4.94549, 8.736), Vector2(3.60788, 8.6821), Vector2(8.31319, 6.47479), Vector2(-4.42842, 10.4773)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Flippables/RightFoot:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.19, 0.34, 0.42, 0.56, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.685864, 0.0, 0.0, -0.620018, 0.0]
+}
+
 [sub_resource type="Animation" id="Animation_x7twk"]
 resource_name = "about_to_fall"
 length = 0.25
@@ -275,57 +379,117 @@ tracks/3/keys = {
 "values": [0.61731, 0.823795]
 }
 
-[sub_resource type="Animation" id="Animation_ant14"]
-resource_name = "Dash"
-length = 0.4
-step = 0.01
+[sub_resource type="Animation" id="Animation_m1u1o"]
+resource_name = "Rest"
+length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Flippables/LeftFoot:position")
+tracks/0/path = NodePath("Flippables/Garment:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.01, 0.02, 0.08, 0.31),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(4.14677, 10.2385), Vector2(1.59949, 9.75791), Vector2(-0.803607, 9.80597), Vector2(-10.7044, 9.95015), Vector2(4.14677, 10.2385)]
+"values": [Vector2(0.017, 0.017), Vector2(0.017, 0.017), Vector2(0.0185086, 0.017), Vector2(0.0191897, 0.017), Vector2(0.0201916, 0.017), Vector2(0.0191897, 0.017), Vector2(0.0185086, 0.017)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Flippables/LeftFoot:rotation")
+tracks/1/path = NodePath("Flippables/AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.01, 0.02, 0.08, 0.31),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.175569, 0.413861, 0.868807, 0.0]
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Flippables/RightFoot:position")
+tracks/2/path = NodePath("Flippables/Garment:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.02, 0.08, 0.31),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-4.42842, 10.4773), Vector2(-8.12919, 8.55483), Vector2(-15.5788, 3.36414), Vector2(-4.42842, 10.4773)]
+"values": [Vector2(0.0828972, 0.207245), Vector2(0.0828972, 0.207245), Vector2(0.331593, 0.248693), Vector2(0.601007, 0.321229), Vector2(0.815159, 0.283234), Vector2(0.69772, 0.245239), Vector2(0.41449, 0.207245)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Flippables/RightFoot:rotation")
+tracks/3/path = NodePath("Flippables/LeftFoot:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.02, 0.08, 0.31),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0, 0.526728, 1.40929, 0.0]
+"values": [Vector2(4.14677, 10.2385)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Flippables/LeftFoot:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Flippables/RightFoot:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4.42842, 10.4773)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Flippables/RightFoot:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Flippables/Hat:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-0.290146, 0.290142), Vector2(-0.290146, 0.290142), Vector2(-0.290146, 0.290142), Vector2(-0.290146, 0.290142), Vector2(-0.290146, 0.290142), Vector2(-0.290146, 0.290142)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Flippables/Hat:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.017, 0.017), Vector2(0.017, 0.017), Vector2(0.0182532, 0.017), Vector2(0.0188169, 0.017), Vector2(0.0195332, 0.017), Vector2(0.0188169, 0.017), Vector2(0.0182532, 0.017)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_op21x"]
@@ -334,6 +498,7 @@ _data = {
 "Fall": SubResource("Animation_s4y7v"),
 "Jump": SubResource("Animation_4g1to"),
 "RESET": SubResource("Animation_bk0n2"),
+"Rest": SubResource("Animation_m1u1o"),
 "Walk": SubResource("Animation_5r3sw"),
 "about_to_fall": SubResource("Animation_x7twk")
 }
@@ -746,9 +911,22 @@ speed_scale = 0.925
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Flippables"]
 scale = Vector2(0.017, 0.017)
 sprite_frames = SubResource("SpriteFrames_6j57q")
-animation = &"Dash"
-frame = 11
-frame_progress = 1.0
+animation = &"Rest"
+
+[node name="Garment" type="Sprite2D" parent="Flippables"]
+position = Vector2(0.0828972, 0.207245)
+scale = Vector2(0.017, 0.017)
+texture = ExtResource("11_54wmx")
+
+[node name="Hat" type="Sprite2D" parent="Flippables"]
+position = Vector2(-0.290146, 0.290142)
+scale = Vector2(0.017, 0.017)
+texture = ExtResource("12_kbvbi")
+
+[node name="Weapon" type="Sprite2D" parent="Flippables"]
+position = Vector2(15.0874, -5.13966)
+scale = Vector2(0.017, 0.017)
+texture = ExtResource("13_j4tye")
 
 [connection signal="timeout" from="Coyote" to="." method="_on_coyote_timeout"]
 [connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]

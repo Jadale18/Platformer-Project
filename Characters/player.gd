@@ -55,7 +55,7 @@ func handle_anims():
 		$Flippables/AnimationPlayer.play("Dash")
 	elif velocity.x == 0 and is_on_floor():
 		$Flippables/AnimatedSprite2D.play("Rest")
-		$Flippables/AnimationPlayer.play("RESET")
+		$Flippables/AnimationPlayer.play("Rest")
 	elif not jumping and not falling:
 		$Flippables/AnimatedSprite2D.play("Run")
 		$Flippables/AnimationPlayer.play("Walk")

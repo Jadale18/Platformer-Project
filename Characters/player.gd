@@ -5,7 +5,7 @@ const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 const ACCELERATION = 1500.0
 const FRICTION = 800.0
-const DASHSPEED = 500.0
+const DASHSPEED = 400.0
 const WALLJUMPHEIGHT = -250
 const WALLJUMPDISTANCE = 350
 
@@ -32,6 +32,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	match_polygon()
+	$Flippables/LeftFoot.position = Vector2(4.428, 10.239)
+	$Flippables/RightFoot.position = Vector2(-4.428, 10.477)
+	$Flippables/LeftFoot.rotation = 0
+	$Flippables/RightFoot.rotation = 0
 
 func _physics_process(delta):
 	apply_gravity(delta)
@@ -46,21 +50,28 @@ func _physics_process(delta):
 	move_and_slide()
 
 func handle_anims():
-	if velocity.x == 0 and is_on_floor():
-		$AnimatedSprite2D.play("Rest")
+	if dashing:
+		$Flippables/AnimatedSprite2D.play("Dash")
+		$Flippables/AnimationPlayer.play("Dash")
+	elif velocity.x == 0 and is_on_floor():
+		$Flippables/AnimatedSprite2D.play("Rest")
+		$Flippables/AnimationPlayer.play("RESET")
 	elif not jumping and not falling:
-		$AnimatedSprite2D.play("Run")
+		$Flippables/AnimatedSprite2D.play("Run")
+		$Flippables/AnimationPlayer.play("Walk")
 	elif jumping and not falling:
-		$AnimatedSprite2D.play('Jump')
-	elif falling:
-		$AnimatedSprite2D.play('fall')
-
+		$Flippables/AnimatedSprite2D.play('Jump')
+		$Flippables/AnimationPlayer.play("Jump")
+	elif falling and $Flippables/AnimatedSprite2D.animation != 'falling':
+		$Flippables/AnimatedSprite2D.play('fall')
+		$Flippables/AnimationPlayer.play("about_to_fall")
+	
 	if velocity.x < 0:
-		$AnimatedSprite2D.flip_h = true
 		facing = -1
+		$Flippables.scale.x = -1
 	if velocity.x > 0:
-		$AnimatedSprite2D.flip_h = false
 		facing = 1
+		$Flippables.scale.x = 1
 
 # Movement
 func handle_axis(direction, delta):
@@ -127,6 +138,7 @@ func dash():
 		moving = true
 	if Input.is_action_just_pressed("Dash") and Inventory.dash == true and not dashing and dashable and not dashbuffer:
 		$DashTimer.start()
+		$Flippables/AnimatedSprite2D.speed_scale = 2.5
 		dashing = true
 		dashable = false
 		velocity.y = 0
@@ -162,6 +174,12 @@ func _on_dash_timer_timeout():
 	dashing = false
 	velocity.x = SPEED * facing
 	$DashBuffer.start()
+	$Flippables/AnimatedSprite2D.speed_scale = 1
 
 func _on_dash_buffer_timeout():
 	dashbuffer = false
+
+func _on_animated_sprite_2d_animation_finished():
+	if $Flippables/AnimatedSprite2D.animation == 'fall':
+		$Flippables/AnimatedSprite2D.play("falling")
+		$Flippables/AnimationPlayer.play("Fall")

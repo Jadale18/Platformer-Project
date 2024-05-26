@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://7eho3ueucpqo"]
 
-[ext_resource type="Texture2D" uid="uid://bu1ewri2ck3t5" path="res://Assets/Equipment/Garments/Char_Equips-6.png" id="1_hx4vp"]
+[ext_resource type="Texture2D" uid="uid://bu1ewri2ck3t5" path="res://Assets/Equipment/Garments/MetalGarment.png" id="1_hx4vp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_31kjp"]
 size = Vector2(16, 6)

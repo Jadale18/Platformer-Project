@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs5udyov0avg6"
-path="res://.godot/imported/Char_Equips-2.png-487ef2669124ebf2258225ff4595aa5b.ctex"
+uid="uid://onqwo55v1c7i"
+path="res://.godot/imported/LeatherGarment.png-93ac17626792c294a37bee7534dbea14.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Equipment/Weapons/Char_Equips-2.png"
-dest_files=["res://.godot/imported/Char_Equips-2.png-487ef2669124ebf2258225ff4595aa5b.ctex"]
+source_file="res://Assets/Equipment/Garments/LeatherGarment.png"
+dest_files=["res://.godot/imported/LeatherGarment.png-93ac17626792c294a37bee7534dbea14.ctex"]
 
 [params]
 

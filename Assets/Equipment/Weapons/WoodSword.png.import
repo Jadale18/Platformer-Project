@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f4h13cmuvb1v"
-path="res://.godot/imported/Char_Equips-4.png-1ccc46194f56a09b07b24e90e4de967d.ctex"
+uid="uid://dqw521wdas6de"
+path="res://.godot/imported/WoodSword.png-704728c1ae4428b9030196457ec4d07c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Equipment/Hats/Char_Equips-4.png"
-dest_files=["res://.godot/imported/Char_Equips-4.png-1ccc46194f56a09b07b24e90e4de967d.ctex"]
+source_file="res://Assets/Equipment/Weapons/WoodSword.png"
+dest_files=["res://.godot/imported/WoodSword.png-704728c1ae4428b9030196457ec4d07c.ctex"]
 
 [params]
 

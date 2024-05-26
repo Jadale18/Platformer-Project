@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsmlnawy3815q"
-path="res://.godot/imported/Char_Equips-7.png-995ad0a7c1a7d88a381d30e8a2d22552.ctex"
+uid="uid://djyi0ccd1rksn"
+path="res://.godot/imported/MetalBoot.png-1b83a0e464f74099b0c335a53b2332a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Equipment/Boots/Char_Equips-7.png"
-dest_files=["res://.godot/imported/Char_Equips-7.png-995ad0a7c1a7d88a381d30e8a2d22552.ctex"]
+source_file="res://Assets/Equipment/Boots/MetalBoot.png"
+dest_files=["res://.godot/imported/MetalBoot.png-1b83a0e464f74099b0c335a53b2332a4.ctex"]
 
 [params]
 

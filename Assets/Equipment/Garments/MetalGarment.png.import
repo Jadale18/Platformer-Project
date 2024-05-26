@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw08f38qv2itw"
-path="res://.godot/imported/Char_Equips-3.png-d168527a72cc8db34b14e5e8c7488958.ctex"
+uid="uid://bu1ewri2ck3t5"
+path="res://.godot/imported/MetalGarment.png-b2966341a0030aae71ad18df6f5409e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Equipment/Hats/Char_Equips-3.png"
-dest_files=["res://.godot/imported/Char_Equips-3.png-d168527a72cc8db34b14e5e8c7488958.ctex"]
+source_file="res://Assets/Equipment/Garments/MetalGarment.png"
+dest_files=["res://.godot/imported/MetalGarment.png-b2966341a0030aae71ad18df6f5409e6.ctex"]
 
 [params]
 

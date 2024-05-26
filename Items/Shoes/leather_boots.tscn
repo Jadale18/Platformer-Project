@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhwt0mcjjd02b"]
 
-[ext_resource type="Texture2D" uid="uid://bsmlnawy3815q" path="res://Assets/Equipment/Boots/Char_Equips-7.png" id="1_bppen"]
+[ext_resource type="Texture2D" uid="uid://bsmlnawy3815q" path="res://Assets/Equipment/Boots/LeatherBoot.png" id="1_bppen"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_31kjp"]
 size = Vector2(16, 6)

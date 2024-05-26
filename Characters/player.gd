@@ -5,7 +5,7 @@ const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 const ACCELERATION = 1500.0
 const FRICTION = 800.0
-const DASHSPEED = 400.0
+const DASHSPEED = 350.0
 const WALLJUMPHEIGHT = -250
 const WALLJUMPDISTANCE = 350
 
@@ -179,7 +179,7 @@ func _on_dash_timer_timeout():
 func _on_dash_buffer_timeout():
 	dashbuffer = false
 
-func _on_animated_sprite_2d_animation_finished():
-	if $Flippables/AnimatedSprite2D.animation == 'fall':
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == 'about_to_fall':
 		$Flippables/AnimatedSprite2D.play("falling")
 		$Flippables/AnimationPlayer.play("Fall")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqw521wdas6de"
-path="res://.godot/imported/Char_Equips-1.png-5b88ae860b541d6ccae4094e8fb45cba.ctex"
+uid="uid://bs5udyov0avg6"
+path="res://.godot/imported/MetalSword.png-ddb3cd0ea3284f1e95a8c82afbe85fb6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Equipment/Weapons/Char_Equips-1.png"
-dest_files=["res://.godot/imported/Char_Equips-1.png-5b88ae860b541d6ccae4094e8fb45cba.ctex"]
+source_file="res://Assets/Equipment/Weapons/MetalSword.png"
+dest_files=["res://.godot/imported/MetalSword.png-ddb3cd0ea3284f1e95a8c82afbe85fb6.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://17uvdl8q4dts"]
+[gd_scene load_steps=71 format=3 uid="uid://17uvdl8q4dts"]
 
 [ext_resource type="Script" path="res://Characters/player.gd" id="1_6ey2k"]
 [ext_resource type="Texture2D" uid="uid://c6qfje77jmirl" path="res://Assets/Player/CharJumpBody.png" id="2_01ykq"]
@@ -237,7 +237,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.864624, 2.16156)]
+"values": [Vector2(1.242, 0.776)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -249,7 +249,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.0211328, 0.0179757)]
+"values": [Vector2(0.021, 0.013)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -994,7 +994,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0.132, 0.5), Vector2(0.864624, 2.16156)]
+"values": [Vector2(0.132, 0.5), Vector2(1.24247, 0.7761)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -1006,7 +1006,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0.018, 0.017), Vector2(0.0211328, 0.0179757)]
+"values": [Vector2(0.018, 0.017), Vector2(0.0211328, 0.0131698)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -1045,8 +1045,49 @@ tracks/9/keys = {
 "values": [3.33067e-16]
 }
 
+[sub_resource type="Animation" id="Animation_5ym4u"]
+resource_name = "Attack"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flippables/Weapon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(15.0874, -5.13966), Vector2(12.5165, -13.6788), Vector2(17.2425, 13.6553), Vector2(15.0874, -5.13966)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flippables/Weapon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.389269, 1.54596, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flippables/Weapon:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.017, 0.017), Vector2(0.017, 0.017), Vector2(0.017, 0.017), Vector2(0.017, 0.017)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_op21x"]
 _data = {
+"Attack": SubResource("Animation_5ym4u"),
 "Dash": SubResource("Animation_ant14"),
 "Fall": SubResource("Animation_s4y7v"),
 "Jump": SubResource("Animation_4g1to"),
@@ -1397,6 +1438,92 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_wvn45"]
+resource_name = "attack"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.17, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(15.0874, -5.13966), Vector2(12.3631, -13.2246), Vector2(17.6359, 6.54831), Vector2(15.0874, -5.13966)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weapon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.17, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.593569, 1.72304, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Weapon:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.17, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.017, 0.017), Vector2(0.017, 0.017), Vector2(0.017, 0.017), Vector2(0.017, 0.017)]
+}
+
+[sub_resource type="Animation" id="Animation_x5elr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(15.0874, -5.13966)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weapon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Weapon:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.017, 0.017)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a0hxt"]
+_data = {
+"RESET": SubResource("Animation_x5elr"),
+"attack": SubResource("Animation_wvn45")
+}
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 5
@@ -1442,6 +1569,9 @@ one_shot = true
 wait_time = 0.2
 one_shot = true
 
+[node name="AttackBuffer" type="Timer" parent="."]
+wait_time = 0.5
+
 [node name="Flippables" type="Node2D" parent="."]
 
 [node name="LeftFoot" type="Sprite2D" parent="Flippables"]
@@ -1464,30 +1594,39 @@ speed_scale = 0.925
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Flippables"]
 scale = Vector2(0.017, 0.017)
 sprite_frames = SubResource("SpriteFrames_6j57q")
-animation = &"Dash"
-frame = 11
+animation = &"fall"
+frame = 2
 
 [node name="Garment" type="Sprite2D" parent="Flippables"]
+visible = false
 position = Vector2(0.0828972, 0.207245)
 rotation = 0.950743
 scale = Vector2(0.017, 0.017)
 texture = ExtResource("11_54wmx")
 
 [node name="Hat" type="Sprite2D" parent="Flippables"]
+visible = false
 position = Vector2(-0.290146, 0.290142)
 scale = Vector2(0.017, 0.017)
 texture = ExtResource("12_in080")
 
 [node name="Weapon" type="Sprite2D" parent="Flippables"]
+visible = false
 z_index = -1
 position = Vector2(15.0874, -5.13966)
 scale = Vector2(0.017, 0.017)
 texture = ExtResource("13_j4tye")
+
+[node name="AttackAnim" type="AnimationPlayer" parent="Flippables"]
+libraries = {
+"": SubResource("AnimationLibrary_a0hxt")
+}
 
 [connection signal="timeout" from="Coyote" to="." method="_on_coyote_timeout"]
 [connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="DashBuffer" to="." method="_on_dash_buffer_timeout"]
+[connection signal="timeout" from="AttackBuffer" to="." method="_on_attack_buffer_timeout"]
 [connection signal="animation_finished" from="Flippables/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="Flippables/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

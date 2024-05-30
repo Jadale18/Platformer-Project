@@ -21,6 +21,7 @@ var dashable = false
 var moving = true
 var dashbuffer = false
 
+var attacking = false
 var facing = 1
 
 
@@ -44,12 +45,15 @@ func _physics_process(delta):
 	check_falling()
 	var direction = Input.get_axis("ui_left", "ui_right")
 	handle_axis(direction, delta)
+	handle_attack()
 	handle_anims()
 	dash()
 	
 	move_and_slide()
 
 func handle_anims():
+	if attacking and not dashing:
+		$Flippables/AttackAnim.play('attack')
 	if dashing:
 		$Flippables/AnimatedSprite2D.play("Dash")
 		$Flippables/AnimationPlayer.play("Dash")
@@ -147,6 +151,11 @@ func dash():
 func match_polygon():
 	polygon_2d.polygon = collision_polygon_2d.polygon
 
+func handle_attack():
+	if Input.is_action_just_pressed("attack") and not attacking:
+		attacking = true
+		$AttackBuffer.start()
+
 #Signals
 func _on_coyote_timeout():
 	coyote_time = false
@@ -183,3 +192,7 @@ func _on_animation_player_animation_finished(anim_name):
 	if anim_name == 'about_to_fall':
 		$Flippables/AnimatedSprite2D.play("falling")
 		$Flippables/AnimationPlayer.play("Fall")
+
+func _on_attack_buffer_timeout():
+	attacking = false
+	$Flippables/AttackAnim.stop()

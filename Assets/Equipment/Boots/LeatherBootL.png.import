@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsmlnawy3815q"
-path="res://.godot/imported/LeatherBoot.png-6ecb03aed33aa2a25046a4fca5c8a1c0.ctex"
+uid="uid://co8oykyoo53i3"
+path="res://.godot/imported/LeatherBootL.png-5c37cce91dd40bccc5a8a153b40b4477.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Equipment/Boots/LeatherBoot.png"
-dest_files=["res://.godot/imported/LeatherBoot.png-6ecb03aed33aa2a25046a4fca5c8a1c0.ctex"]
+source_file="res://Assets/Equipment/Boots/LeatherBootL.png"
+dest_files=["res://.godot/imported/LeatherBootL.png-5c37cce91dd40bccc5a8a153b40b4477.ctex"]
 
 [params]
 

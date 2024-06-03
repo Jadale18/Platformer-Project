@@ -15,6 +15,7 @@ const jump_reduction = 1.8
 var jumping = false
 var falling = false
 var double_used = false
+var on_ground = false
 
 var dashing = false
 var dashable = false
@@ -32,6 +33,8 @@ var facing = 1
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
+	Inventory.equipment_change.connect(_on_equipment_change)
+	Inventory.equipment_visibility_changed.connect(_on_equipment_visibility_changed)
 	match_polygon()
 	$Flippables/LeftFoot.position = Vector2(4.428, 10.239)
 	$Flippables/RightFoot.position = Vector2(-4.428, 10.477)
@@ -48,6 +51,7 @@ func _physics_process(delta):
 	handle_attack()
 	handle_anims()
 	dash()
+	handle_landing()
 	
 	move_and_slide()
 
@@ -113,6 +117,9 @@ func handle_jump():
 
 func jump():
 	if moving:
+		$JumpParticles.emitting = true
+		$JumpParticles2.emitting = true
+		print('j')
 		jumping = true
 		velocity.y = JUMP_VELOCITY
 
@@ -143,6 +150,7 @@ func dash():
 	if Input.is_action_just_pressed("Dash") and Inventory.dash == true and not dashing and dashable and not dashbuffer:
 		$DashTimer.start()
 		$Flippables/AnimatedSprite2D.speed_scale = 2.5
+		$Flippables/DashParticles.emitting = true
 		dashing = true
 		dashable = false
 		velocity.y = 0
@@ -155,6 +163,15 @@ func handle_attack():
 	if Input.is_action_just_pressed("attack") and not attacking:
 		attacking = true
 		$AttackBuffer.start()
+
+func handle_landing():
+	if is_on_floor():
+		if not on_ground:
+			$LandParticles.emitting = true
+			$LandParticles2.emitting = true
+		on_ground = true
+	else:
+		on_ground = false
 
 #Signals
 func _on_coyote_timeout():
@@ -179,6 +196,7 @@ func _on_area_2d_area_entered(area):
 		get_node("/root/World").queue_free()
 
 func _on_dash_timer_timeout():
+	$Flippables/DashParticles.emitting = false
 	dashbuffer = true
 	dashing = false
 	velocity.x = SPEED * facing
@@ -196,3 +214,23 @@ func _on_animation_player_animation_finished(anim_name):
 func _on_attack_buffer_timeout():
 	attacking = false
 	$Flippables/AttackAnim.stop()
+
+func _on_equipment_change(type):
+	if type == "Shoe":
+		pass
+	elif type == "Garment":
+		$Flippables/Garment.texture = Inventory.get_child(1).get_child(2).get_child(2).get_child(0).texture
+	elif type == "Hat":
+		$Flippables/Hat.texture = Inventory.get_child(1).get_child(2).get_child(1).get_child(0).texture
+	elif type == "Weapon":
+		$Flippables/Weapon.texture = Inventory.get_child(1).get_child(2).get_child(3).get_child(0).texture
+
+func _on_equipment_visibility_changed(type, vible):
+	if type == "Shoe":
+		pass
+	elif type == "Garment":
+		$Flippables/Garment.visible = vible
+	elif type == "Hat":
+		$Flippables/Hat.visible = vible
+	elif type == "Weapon":
+		$Flippables/Weapon.visible = vible

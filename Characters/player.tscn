@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://17uvdl8q4dts"]
+[gd_scene load_steps=73 format=3 uid="uid://17uvdl8q4dts"]
 
 [ext_resource type="Script" path="res://Characters/player.gd" id="1_6ey2k"]
 [ext_resource type="Texture2D" uid="uid://c6qfje77jmirl" path="res://Assets/Player/CharJumpBody.png" id="2_01ykq"]
@@ -10,9 +10,47 @@
 [ext_resource type="Texture2D" uid="uid://dpxx5pkqbe6aa" path="res://Assets/Player/CharFallBody.png" id="6_mwswi"]
 [ext_resource type="Texture2D" uid="uid://ca6fl6ushepvo" path="res://Assets/Player/Char_Legs-1.png" id="7_51nbo"]
 [ext_resource type="Texture2D" uid="uid://c63m1jpju0ptj" path="res://Assets/Player/Char_Legs-2.png" id="8_r5eu6"]
-[ext_resource type="Texture2D" uid="uid://onqwo55v1c7i" path="res://Assets/Equipment/Garments/LeatherGarment.png" id="11_54wmx"]
-[ext_resource type="Texture2D" uid="uid://f4h13cmuvb1v" path="res://Assets/Equipment/Hats/LeatherHat.png" id="12_in080"]
 [ext_resource type="Texture2D" uid="uid://dqw521wdas6de" path="res://Assets/Equipment/Weapons/WoodSword.png" id="13_j4tye"]
+
+[sub_resource type="Animation" id="Animation_5ym4u"]
+resource_name = "Attack"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flippables/Weapon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(15.0874, -5.13966), Vector2(12.5165, -13.6788), Vector2(17.2425, 13.6553), Vector2(15.0874, -5.13966)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flippables/Weapon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.389269, 1.54596, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flippables/Weapon:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.017, 0.017), Vector2(0.017, 0.017), Vector2(0.017, 0.017), Vector2(0.017, 0.017)]
+}
 
 [sub_resource type="Animation" id="Animation_ant14"]
 resource_name = "Dash"
@@ -287,6 +325,42 @@ tracks/8/keys = {
 "update": 0,
 "values": [3.48787e-16]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Flippables/Weapon:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(15.0874, -5.13966), Vector2(14.1176, -6.03485), Vector2(15.0874, -5.13966)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Flippables/Weapon:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.228638, 0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Flippables/Weapon:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.017, 0.017), Vector2(0.017, 0.017), Vector2(0.017, 0.017)]
+}
 
 [sub_resource type="Animation" id="Animation_4g1to"]
 resource_name = "Jump"
@@ -419,10 +493,10 @@ tracks/10/path = NodePath("Flippables/Weapon:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.1175, 0.4321),
+"times": PackedFloat32Array(0, 0.0718, 0.2101),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(15.0874, -5.13966), Vector2(13.6106, -19.6259), Vector2(15.0874, -5.13966)]
+"values": [Vector2(15.0874, -5.13966), Vector2(13.611, -11), Vector2(15.0874, -5.13966)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -1044,45 +1118,41 @@ tracks/9/keys = {
 "update": 0,
 "values": [3.33067e-16]
 }
-
-[sub_resource type="Animation" id="Animation_5ym4u"]
-resource_name = "Attack"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flippables/Weapon:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Flippables/Weapon:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(15.0874, -5.13966), Vector2(12.5165, -13.6788), Vector2(17.2425, 13.6553), Vector2(15.0874, -5.13966)]
+"values": [Vector2(15.0874, -5.13966)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Flippables/Weapon:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Flippables/Weapon:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0, -0.389269, 1.54596, 0.0]
+"values": [0.0]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Flippables/Weapon:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Flippables/Weapon:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.017, 0.017), Vector2(0.017, 0.017), Vector2(0.017, 0.017), Vector2(0.017, 0.017)]
+"values": [Vector2(0.017, 0.017)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_op21x"]
@@ -1438,6 +1508,45 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_x5elr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(15.0874, -5.13966)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weapon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Weapon:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.017, 0.017)]
+}
+
 [sub_resource type="Animation" id="Animation_wvn45"]
 resource_name = "attack"
 length = 0.5
@@ -1479,50 +1588,26 @@ tracks/2/keys = {
 "values": [Vector2(0.017, 0.017), Vector2(0.017, 0.017), Vector2(0.017, 0.017), Vector2(0.017, 0.017)]
 }
 
-[sub_resource type="Animation" id="Animation_x5elr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Weapon:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(15.0874, -5.13966)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Weapon:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Weapon:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.017, 0.017)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a0hxt"]
 _data = {
 "RESET": SubResource("Animation_x5elr"),
 "attack": SubResource("Animation_wvn45")
 }
+
+[sub_resource type="Gradient" id="Gradient_ed311"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_0v0y6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.936019, 0.247891), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_1od7h"]
+offsets = PackedFloat32Array(0, 0.497253, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.0588235)
+
+[sub_resource type="Curve" id="Curve_c6nai"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0807552), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -1594,24 +1679,18 @@ speed_scale = 0.925
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Flippables"]
 scale = Vector2(0.017, 0.017)
 sprite_frames = SubResource("SpriteFrames_6j57q")
-animation = &"fall"
-frame = 2
+animation = &"falling"
 
 [node name="Garment" type="Sprite2D" parent="Flippables"]
-visible = false
 position = Vector2(0.0828972, 0.207245)
 rotation = 0.950743
 scale = Vector2(0.017, 0.017)
-texture = ExtResource("11_54wmx")
 
 [node name="Hat" type="Sprite2D" parent="Flippables"]
-visible = false
 position = Vector2(-0.290146, 0.290142)
 scale = Vector2(0.017, 0.017)
-texture = ExtResource("12_in080")
 
 [node name="Weapon" type="Sprite2D" parent="Flippables"]
-visible = false
 z_index = -1
 position = Vector2(15.0874, -5.13966)
 scale = Vector2(0.017, 0.017)
@@ -1621,6 +1700,84 @@ texture = ExtResource("13_j4tye")
 libraries = {
 "": SubResource("AnimationLibrary_a0hxt")
 }
+
+[node name="DashParticles" type="CPUParticles2D" parent="Flippables"]
+position = Vector2(-13.1225, 0.302826)
+emitting = false
+amount = 200
+emission_shape = 3
+emission_rect_extents = Vector2(1, 4)
+direction = Vector2(-1, 2.08165e-12)
+spread = 90.0
+gravity = Vector2(2.08165e-12, 2.08165e-12)
+initial_velocity_min = 5.0
+initial_velocity_max = 15.0
+scale_amount_min = 0.3
+scale_amount_max = 1.3
+color_ramp = SubResource("Gradient_ed311")
+
+[node name="JumpParticles" type="CPUParticles2D" parent="."]
+position = Vector2(-5.55183, 13.5068)
+emitting = false
+amount = 30
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(2, 1)
+direction = Vector2(2.08165e-12, -1)
+spread = 10.0
+gravity = Vector2(2.08165e-12, 300)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+scale_amount_min = 0.4
+scale_amount_curve = SubResource("Curve_0v0y6")
+color_ramp = SubResource("Gradient_1od7h")
+
+[node name="JumpParticles2" type="CPUParticles2D" parent="."]
+position = Vector2(5.04713, 13.5068)
+emitting = false
+amount = 30
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(2, 1)
+direction = Vector2(2.08165e-12, -1)
+spread = 10.0
+gravity = Vector2(2.08165e-12, 300)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+scale_amount_min = 0.4
+scale_amount_curve = SubResource("Curve_0v0y6")
+color_ramp = SubResource("Gradient_1od7h")
+
+[node name="LandParticles" type="CPUParticles2D" parent="."]
+position = Vector2(7.46747, 13.4807)
+emitting = false
+amount = 20
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(1, -1)
+initial_velocity_min = 70.0
+initial_velocity_max = 100.0
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_c6nai")
+
+[node name="LandParticles2" type="CPUParticles2D" parent="."]
+position = Vector2(-8.05035, 13.5604)
+scale = Vector2(-1, 1)
+emitting = false
+amount = 20
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(1, -1)
+initial_velocity_min = 70.0
+initial_velocity_max = 100.0
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_c6nai")
 
 [connection signal="timeout" from="Coyote" to="." method="_on_coyote_timeout"]
 [connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]

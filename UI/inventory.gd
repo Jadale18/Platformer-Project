@@ -5,6 +5,7 @@ var current_garment = null
 var current_hat = null
 var current_weapon = null
 signal equipment_change(type)
+signal equipment_visibility_changed(type, vible)
 
 var full_item_list = ['LeatherBoots']
 var unlocked_item_list = []
@@ -17,7 +18,8 @@ var wall_jump = true
 
 
 func _ready():
-	$CanvasLayer/AnimatedSprite2D.play("default")
+	$CanvasLayer/Flippables/AnimatedSprite2D.play("Rest")
+	$CanvasLayer/Flippables/AnimationPlayer.play("Rest")
 
 func _process(delta):
 	if Input.is_action_just_pressed("Inventory") and Global.pausable:
@@ -93,33 +95,57 @@ func _on_metal_boots_button_pressed():
 # Garments
 func _on_leather_garment_button_pressed():
 	$CanvasLayer/Panels/GarmentPanel/TextureRect.texture = $CanvasLayer/GridMenus/GarmentsMenu/GarmentsGrid/LeatherGarmentButton.icon
+	$CanvasLayer/Flippables/Garment.texture = $CanvasLayer/Panels/GarmentPanel/TextureRect.texture
 	current_garment = "LeatherGarment"
 	emit_signal("equipment_change", "Garment")
 
 func _on_metal_garment_button_pressed():
 	$CanvasLayer/Panels/GarmentPanel/TextureRect.texture = $CanvasLayer/GridMenus/GarmentsMenu/GarmentsGrid/MetalGarmentButton.icon
+	$CanvasLayer/Flippables/Garment.texture = $CanvasLayer/Panels/GarmentPanel/TextureRect.texture
 	current_garment = "MetalGarment"
 	emit_signal("equipment_change", "Garment")
 
 # Hats
 func _on_leather_hat_button_2_pressed():
 	$CanvasLayer/Panels/HatPanel/TextureRect.texture = $CanvasLayer/GridMenus/HatsMenu/HatsGrid/LeatherHatButton.icon
+	$CanvasLayer/Flippables/Hat.texture = $CanvasLayer/Panels/HatPanel/TextureRect.texture
 	current_hat = "LeatherHat"
 	emit_signal("equipment_change", "Hat")
 
 func _on_metal_hat_button_pressed():
 	$CanvasLayer/Panels/HatPanel/TextureRect.texture = $CanvasLayer/GridMenus/HatsMenu/HatsGrid/MetalHatButton.icon
+	$CanvasLayer/Flippables/Hat.texture = $CanvasLayer/Panels/HatPanel/TextureRect.texture
 	current_hat = "MetalHat"
 	emit_signal("equipment_change", "Hat")
 
 # Weapons
-
 func _on_wood_sword_pressed():
 	$CanvasLayer/Panels/WeaponPanel/TextureRect.texture = $CanvasLayer/GridMenus/WeaponsMenu/WeaponsGrid/WoodSwordButton.icon
+	$CanvasLayer/Flippables/Weapon.texture = $CanvasLayer/Panels/WeaponPanel/TextureRect.texture
 	current_weapon = "WoodSword"
 	emit_signal("equipment_change", "Weapon")
 
 func _on_metal_sword_button_pressed():
 	$CanvasLayer/Panels/WeaponPanel/TextureRect.texture = $CanvasLayer/GridMenus/WeaponsMenu/WeaponsGrid/MetalSwordButton.icon
+	$CanvasLayer/Flippables/Weapon.texture = $CanvasLayer/Panels/WeaponPanel/TextureRect.texture
 	current_weapon = "MetalSword"
 	emit_signal("equipment_change", "Weapon")
+
+
+# Visibility Buttons
+
+
+func _on_shoes_check_button_toggled(toggled_on):
+	pass
+
+func _on_hat_check_button_toggled(toggled_on):
+	$CanvasLayer/Flippables/Hat.visible = toggled_on
+	emit_signal("equipment_visibility_changed", "Hat", toggled_on)
+
+func _on_garment_check_button_toggled(toggled_on):
+	$CanvasLayer/Flippables/Garment.visible = toggled_on
+	emit_signal("equipment_visibility_changed", "Garment", toggled_on)
+
+func _on_weapon_check_button_toggled(toggled_on):
+	$CanvasLayer/Flippables/Weapon.visible = toggled_on
+	emit_signal("equipment_visibility_changed", "Weapon", toggled_on)

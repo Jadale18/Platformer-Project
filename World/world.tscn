@@ -136,10 +136,10 @@ libraries = {
 [node name="Items" type="Node2D" parent="."]
 
 [node name="LeatherBoots" parent="Items" instance=ExtResource("4_4qic6")]
-position = Vector2(320, 496)
+position = Vector2(321, 516)
 
 [node name="MetalBoots" parent="Items" instance=ExtResource("5_gphi5")]
-position = Vector2(368, 497.781)
+position = Vector2(362, 516)
 
 [node name="LeatherGarment" parent="Items" instance=ExtResource("6_y0p3k")]
 position = Vector2(432, 505.781)

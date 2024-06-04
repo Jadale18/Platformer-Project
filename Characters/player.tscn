@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://17uvdl8q4dts"]
+[gd_scene load_steps=72 format=3 uid="uid://17uvdl8q4dts"]
 
 [ext_resource type="Script" path="res://Characters/player.gd" id="1_6ey2k"]
 [ext_resource type="Texture2D" uid="uid://c6qfje77jmirl" path="res://Assets/Player/CharJumpBody.png" id="2_01ykq"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://dpxx5pkqbe6aa" path="res://Assets/Player/CharFallBody.png" id="6_mwswi"]
 [ext_resource type="Texture2D" uid="uid://ca6fl6ushepvo" path="res://Assets/Player/Char_Legs-1.png" id="7_51nbo"]
 [ext_resource type="Texture2D" uid="uid://c63m1jpju0ptj" path="res://Assets/Player/Char_Legs-2.png" id="8_r5eu6"]
-[ext_resource type="Texture2D" uid="uid://dqw521wdas6de" path="res://Assets/Equipment/Weapons/WoodSword.png" id="13_j4tye"]
 
 [sub_resource type="Animation" id="Animation_5ym4u"]
 resource_name = "Attack"
@@ -1694,7 +1693,6 @@ scale = Vector2(0.017, 0.017)
 z_index = -1
 position = Vector2(15.0874, -5.13966)
 scale = Vector2(0.017, 0.017)
-texture = ExtResource("13_j4tye")
 
 [node name="AttackAnim" type="AnimationPlayer" parent="Flippables"]
 libraries = {

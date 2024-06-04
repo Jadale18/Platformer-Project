@@ -4,7 +4,7 @@ var current_shoe = null
 var current_garment = null
 var current_hat = null
 var current_weapon = null
-signal equipment_change(type)
+signal equipment_change(type, vible)
 signal equipment_visibility_changed(type, vible)
 
 var full_item_list = ['LeatherBoots']
@@ -82,61 +82,116 @@ func _on_return_butt_pressed():
 # Button presses for specific items
 
 # Shoes
+func _on_none_shoe_pressed():
+	$CanvasLayer/Panels/ShoesPanel/ShoesCheckButton.button_pressed = true
+	$CanvasLayer/Panels/ShoesPanel/ShoesCheckButton.disabled = true
+	$CanvasLayer/Panels/ShoesPanel/TextureRect.texture = null
+	$CanvasLayer/Flippables/LBoot.texture = null
+	$CanvasLayer/Flippables/RBoot.texture = null
+	$CanvasLayer/Flippables/LeftFoot.visible = true
+	$CanvasLayer/Flippables/RightFoot.visible = true
+	current_shoe = null
+	emit_signal("equipment_change","Shoe", null)
+
 func _on_leather_shoe_button_pressed():
 	$CanvasLayer/Panels/ShoesPanel/TextureRect.texture = $CanvasLayer/GridMenus/ShoesMenu/ShoesGrid/LeatherBootsButton.icon
+	$CanvasLayer/Flippables/LBoot.texture = $CanvasLayer/GridMenus/ShoesMenu/ShoesGrid/LeatherBootsButton/Left.texture
+	$CanvasLayer/Flippables/RBoot.texture = $CanvasLayer/GridMenus/ShoesMenu/ShoesGrid/LeatherBootsButton/Right.texture
+	if $CanvasLayer/Panels/ShoesPanel/ShoesCheckButton.button_pressed:
+		$CanvasLayer/Flippables/LeftFoot.visible = false
+		$CanvasLayer/Flippables/RightFoot.visible = false
+	$CanvasLayer/Panels/ShoesPanel/ShoesCheckButton.disabled = false
 	current_shoe = "LeatherBoots"
-	emit_signal("equipment_change","Shoe")
+	emit_signal("equipment_change","Shoe", $CanvasLayer/Panels/ShoesPanel/ShoesCheckButton.button_pressed)
 
 func _on_metal_boots_button_pressed():
 	$CanvasLayer/Panels/ShoesPanel/TextureRect.texture = $CanvasLayer/GridMenus/ShoesMenu/ShoesGrid/MetalBootsButton.icon
+	$CanvasLayer/Flippables/LBoot.texture = $CanvasLayer/GridMenus/ShoesMenu/ShoesGrid/MetalBootsButton/Left.texture
+	$CanvasLayer/Flippables/RBoot.texture = $CanvasLayer/GridMenus/ShoesMenu/ShoesGrid/MetalBootsButton/Right.texture
+	if $CanvasLayer/Panels/ShoesPanel/ShoesCheckButton.button_pressed:
+		$CanvasLayer/Flippables/LeftFoot.visible = false
+		$CanvasLayer/Flippables/RightFoot.visible = false
+	$CanvasLayer/Panels/ShoesPanel/ShoesCheckButton.disabled = false
 	current_shoe = "MetalBoots"
-	emit_signal("equipment_change", "Shoe")
+	emit_signal("equipment_change", "Shoe", $CanvasLayer/Panels/ShoesPanel/ShoesCheckButton.button_pressed)
 
 # Garments
+func _on_none_garment_pressed():
+	$CanvasLayer/Panels/GarmentPanel/GarmentCheckButton.button_pressed = true
+	$CanvasLayer/Panels/GarmentPanel/GarmentCheckButton.disabled = true
+	$CanvasLayer/Panels/GarmentPanel/TextureRect.texture = null
+	$CanvasLayer/Flippables/Garment.texture = null
+	current_garment = null
+	emit_signal("equipment_change", "Garment", null)
+
 func _on_leather_garment_button_pressed():
 	$CanvasLayer/Panels/GarmentPanel/TextureRect.texture = $CanvasLayer/GridMenus/GarmentsMenu/GarmentsGrid/LeatherGarmentButton.icon
 	$CanvasLayer/Flippables/Garment.texture = $CanvasLayer/Panels/GarmentPanel/TextureRect.texture
+	$CanvasLayer/Panels/GarmentPanel/GarmentCheckButton.disabled = false
 	current_garment = "LeatherGarment"
-	emit_signal("equipment_change", "Garment")
+	emit_signal("equipment_change", "Garment", null)
 
 func _on_metal_garment_button_pressed():
 	$CanvasLayer/Panels/GarmentPanel/TextureRect.texture = $CanvasLayer/GridMenus/GarmentsMenu/GarmentsGrid/MetalGarmentButton.icon
 	$CanvasLayer/Flippables/Garment.texture = $CanvasLayer/Panels/GarmentPanel/TextureRect.texture
+	$CanvasLayer/Panels/GarmentPanel/GarmentCheckButton.disabled = false
 	current_garment = "MetalGarment"
-	emit_signal("equipment_change", "Garment")
+	emit_signal("equipment_change", "Garment", null)
 
 # Hats
+func _on_none_hat_pressed():
+	$CanvasLayer/Panels/HatPanel/HatCheckButton.button_pressed = true
+	$CanvasLayer/Panels/HatPanel/HatCheckButton.disabled = true
+	$CanvasLayer/Panels/HatPanel/TextureRect.texture = null
+	$CanvasLayer/Flippables/Hat.texture = null
+	current_hat = null
+	emit_signal("equipment_change", "Hat", null)
+	
 func _on_leather_hat_button_2_pressed():
 	$CanvasLayer/Panels/HatPanel/TextureRect.texture = $CanvasLayer/GridMenus/HatsMenu/HatsGrid/LeatherHatButton.icon
 	$CanvasLayer/Flippables/Hat.texture = $CanvasLayer/Panels/HatPanel/TextureRect.texture
+	$CanvasLayer/Panels/HatPanel/HatCheckButton.disabled = false
 	current_hat = "LeatherHat"
-	emit_signal("equipment_change", "Hat")
+	emit_signal("equipment_change", "Hat", null)
 
 func _on_metal_hat_button_pressed():
 	$CanvasLayer/Panels/HatPanel/TextureRect.texture = $CanvasLayer/GridMenus/HatsMenu/HatsGrid/MetalHatButton.icon
 	$CanvasLayer/Flippables/Hat.texture = $CanvasLayer/Panels/HatPanel/TextureRect.texture
+	$CanvasLayer/Panels/HatPanel/HatCheckButton.disabled = false
 	current_hat = "MetalHat"
-	emit_signal("equipment_change", "Hat")
+	emit_signal("equipment_change", "Hat", null)
 
 # Weapons
+func _on_none_weapon_pressed():
+	$CanvasLayer/Panels/WeaponPanel/WeaponCheckButton.button_pressed = true
+	$CanvasLayer/Panels/WeaponPanel/WeaponCheckButton.disabled = true
+	$CanvasLayer/Panels/WeaponPanel/TextureRect.texture = null
+	$CanvasLayer/Flippables/Weapon.texture = null
+	current_weapon = null
+	emit_signal("equipment_change", "Weapon", null)
+
 func _on_wood_sword_pressed():
 	$CanvasLayer/Panels/WeaponPanel/TextureRect.texture = $CanvasLayer/GridMenus/WeaponsMenu/WeaponsGrid/WoodSwordButton.icon
 	$CanvasLayer/Flippables/Weapon.texture = $CanvasLayer/Panels/WeaponPanel/TextureRect.texture
+	$CanvasLayer/Panels/WeaponPanel/WeaponCheckButton.disabled = false
 	current_weapon = "WoodSword"
-	emit_signal("equipment_change", "Weapon")
+	emit_signal("equipment_change", "Weapon", null)
 
 func _on_metal_sword_button_pressed():
 	$CanvasLayer/Panels/WeaponPanel/TextureRect.texture = $CanvasLayer/GridMenus/WeaponsMenu/WeaponsGrid/MetalSwordButton.icon
 	$CanvasLayer/Flippables/Weapon.texture = $CanvasLayer/Panels/WeaponPanel/TextureRect.texture
+	$CanvasLayer/Panels/WeaponPanel/WeaponCheckButton.disabled = false
 	current_weapon = "MetalSword"
-	emit_signal("equipment_change", "Weapon")
+	emit_signal("equipment_change", "Weapon", null)
 
 
 # Visibility Buttons
-
-
 func _on_shoes_check_button_toggled(toggled_on):
-	pass
+	$CanvasLayer/Flippables/LBoot.visible = toggled_on
+	$CanvasLayer/Flippables/RBoot.visible = toggled_on
+	$CanvasLayer/Flippables/LeftFoot.visible = not toggled_on
+	$CanvasLayer/Flippables/RightFoot.visible = not toggled_on
+	emit_signal("equipment_visibility_changed", "Shoe", toggled_on)
 
 func _on_hat_check_button_toggled(toggled_on):
 	$CanvasLayer/Flippables/Hat.visible = toggled_on
@@ -149,3 +204,4 @@ func _on_garment_check_button_toggled(toggled_on):
 func _on_weapon_check_button_toggled(toggled_on):
 	$CanvasLayer/Flippables/Weapon.visible = toggled_on
 	emit_signal("equipment_visibility_changed", "Weapon", toggled_on)
+

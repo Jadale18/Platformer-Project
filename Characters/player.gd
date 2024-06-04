@@ -25,6 +25,8 @@ var dashbuffer = false
 var attacking = false
 var facing = 1
 
+var lshoe = preload('res://Assets/Player/Char_Legs-1.png')
+var rshoe = preload('res://Assets/Player/Char_Legs-2.png')
 
 @onready var collision_polygon_2d = $CollisionPolygon2D
 @onready var polygon_2d = $CollisionPolygon2D/Polygon2D
@@ -119,7 +121,6 @@ func jump():
 	if moving:
 		$JumpParticles.emitting = true
 		$JumpParticles2.emitting = true
-		print('j')
 		jumping = true
 		velocity.y = JUMP_VELOCITY
 
@@ -155,6 +156,8 @@ func dash():
 		dashable = false
 		velocity.y = 0
 		velocity.x = facing * DASHSPEED
+	if $Flippables/DashParticles.emitting and is_on_wall():
+		$Flippables/DashParticles.emitting = false
 
 func match_polygon():
 	polygon_2d.polygon = collision_polygon_2d.polygon
@@ -215,19 +218,35 @@ func _on_attack_buffer_timeout():
 	attacking = false
 	$Flippables/AttackAnim.stop()
 
-func _on_equipment_change(type):
+func _on_equipment_change(type, vible):
 	if type == "Shoe":
-		pass
+		if vible:
+			$Flippables/LeftFoot.texture = Inventory.get_child(1).get_child(1).get_child(8).texture
+			$Flippables/RightFoot.texture = Inventory.get_child(1).get_child(1).get_child(9).texture
+		if not Inventory.current_shoe:
+			$Flippables/LeftFoot.texture = lshoe
+			$Flippables/RightFoot.texture = rshoe
 	elif type == "Garment":
 		$Flippables/Garment.texture = Inventory.get_child(1).get_child(2).get_child(2).get_child(0).texture
+		if not Inventory.current_garment:
+			$Flippables/Garment.texture = null
 	elif type == "Hat":
 		$Flippables/Hat.texture = Inventory.get_child(1).get_child(2).get_child(1).get_child(0).texture
+		if not Inventory.current_hat:
+			$Flippables/Hat.texture = null
 	elif type == "Weapon":
 		$Flippables/Weapon.texture = Inventory.get_child(1).get_child(2).get_child(3).get_child(0).texture
+		if not Inventory.current_weapon:
+			$Flippables/Weapon.texture = null
 
 func _on_equipment_visibility_changed(type, vible):
 	if type == "Shoe":
-		pass
+		if vible:
+			$Flippables/LeftFoot.texture = Inventory.get_child(1).get_child(1).get_child(8).texture
+			$Flippables/RightFoot.texture = Inventory.get_child(1).get_child(1).get_child(9).texture
+		else:
+			$Flippables/LeftFoot.texture = lshoe
+			$Flippables/RightFoot.texture = rshoe
 	elif type == "Garment":
 		$Flippables/Garment.visible = vible
 	elif type == "Hat":

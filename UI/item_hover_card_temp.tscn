@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhlf3x8lsc3q1"]
+
+[ext_resource type="Texture2D" uid="uid://co8oykyoo53i3" path="res://Assets/Equipment/Boots/LeatherBootL.png" id="1_a4voc"]
+
+[node name="ItemHoverCardTemp" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.462291, 0.462291, 0.462291, 1)
+
+[node name="Description" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -534.485
+offset_top = -59.4926
+offset_right = -38.4852
+offset_bottom = 5.50745
+grow_horizontal = 0
+grow_vertical = 2
+text = "This shoe provides some defensive value and a comfortable fit
+"
+
+[node name="Effect" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -439.841
+offset_top = 64.3519
+offset_right = -145.841
+offset_bottom = 129.352
+grow_horizontal = 0
+grow_vertical = 2
+text = "Blah plus defense or whatevs
+
+"
+
+[node name="Title" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -420.378
+offset_top = -214.704
+offset_right = -206.378
+offset_bottom = -149.704
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 30
+text = "Leather Boot
+
+"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320.359, 325.077)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_a4voc")

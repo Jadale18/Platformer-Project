@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://uagpvn61l7ev"]
+
+[ext_resource type="Script" path="res://Particles/jump_particles.gd" id="1_wiene"]
+
+[sub_resource type="Curve" id="Curve_422kd"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.936019, 0.247891), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_jhad6"]
+offsets = PackedFloat32Array(0, 0.497253, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.0588235)
+
+[node name="JumpParticles" type="Node2D"]
+script = ExtResource("1_wiene")
+
+[node name="JumpParticles" type="CPUParticles2D" parent="."]
+position = Vector2(2.08165e-12, 10)
+emitting = false
+amount = 30
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector2(2.08165e-12, -1)
+spread = 0.0
+gravity = Vector2(2.08165e-12, 50)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+scale_amount_min = 0.4
+scale_amount_curve = SubResource("Curve_422kd")
+color_ramp = SubResource("Gradient_jhad6")
+
+[connection signal="finished" from="JumpParticles" to="." method="_on_jump_particles_finished"]

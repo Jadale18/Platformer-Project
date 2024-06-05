@@ -27,6 +27,7 @@ var facing = 1
 
 var lshoe = preload('res://Assets/Player/Char_Legs-1.png')
 var rshoe = preload('res://Assets/Player/Char_Legs-2.png')
+var jump_particles = preload('res://Particles/jump_particles.tscn').instantiate()
 
 @onready var collision_polygon_2d = $CollisionPolygon2D
 @onready var polygon_2d = $CollisionPolygon2D/Polygon2D
@@ -119,8 +120,10 @@ func handle_jump():
 
 func jump():
 	if moving:
-		$JumpParticles.emitting = true
-		$JumpParticles2.emitting = true
+		jump
+		jump_particles.rotation = velocity.x / 300
+		add_child(jump_particles)
+		jump_particles = preload('res://Particles/jump_particles.tscn').instantiate()
 		jumping = true
 		velocity.y = JUMP_VELOCITY
 

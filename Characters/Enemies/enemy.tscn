@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bthuc3300sgwu"]
+[gd_scene load_steps=3 format=3 uid="uid://bthuc3300sgwu"]
 
-[ext_resource type="Script" path="res://Characters/Enemy.gd" id="1_23scv"]
+[ext_resource type="Script" path="res://Characters/Enemies/Enemy.gd" id="1_23scv"]
+[ext_resource type="Texture2D" uid="uid://wieetig0q2x8" path="res://Assets/Enemies/Bunglo/First_enemy.png" id="2_pjmvc"]
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 8
@@ -25,5 +26,13 @@ collision_mask = 2
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="EnemyArea"]
 polygon = PackedVector2Array(-8, 8, -16, 0, -8, -8, 0, -16, 8, -8, 16, -8, 16, 0, 8, 8)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-0.0851212, -8.68285)
+scale = Vector2(-0.017, 0.017)
+texture = ExtResource("2_pjmvc")
+
+[node name="Node" type="Node" parent="Sprite2D"]
 
 [connection signal="area_entered" from="EnemyArea" to="." method="_on_area_2d_area_entered"]

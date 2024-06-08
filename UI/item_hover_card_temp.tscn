@@ -59,16 +59,17 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -420.378
-offset_top = -214.704
-offset_right = -206.378
-offset_bottom = -149.704
+offset_left = -417.0
+offset_top = -225.0
+offset_right = -165.0
+offset_bottom = -143.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 30
 text = "Leather Boot
 
 "
+scroll_active = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(320.359, 325.077)

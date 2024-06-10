@@ -5,7 +5,7 @@ var enemy_health: int
 var enemy_defense: float
 
 # Format [Health, defense]
-var healths_dict = {'Enemy': [10, 1]}
+var healths_dict = {'Enemy': [10, 1], 'Bunglo': [10, 1]}
 
 func set_values():
 	enemy_health = healths_dict[current_enemy][0]

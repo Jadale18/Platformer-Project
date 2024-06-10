@@ -26,8 +26,6 @@ func _process(delta):
 
 
 func enemy_turn(attack):
-	print(attack[0])
-	print(enemy_defense)
 	player_health -= attack[1]
 	if attack[2] == 'Defend':
 		enemy_defense += 1

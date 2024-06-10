@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var collision_polygon_2d = $StaticBody2D/CollisionPolygon2D
 @onready var polygon_2d = $StaticBody2D/CollisionPolygon2D/Polygon2D
-var enemy_scene = preload('res://Characters/enemy.tscn').instantiate()
+var enemy_scene = preload('res://Characters/Enemies/Bunglo.tscn').instantiate()
 
 
 func _ready():

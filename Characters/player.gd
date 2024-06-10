@@ -195,6 +195,8 @@ func _on_area_2d_area_entered(area):
 		area.get_parent().reparent(Inventory.get_child(0))
 	else:
 		BattleInfo.current_enemy = area.get_parent().name
+		area.get_parent().in_battle = true
+		area.get_parent().reparent(BattleInfo)
 		BattleInfo.set_values()
 		get_tree().root.add_child(Global.battle_scene)
 		Global.player_pos = global_position

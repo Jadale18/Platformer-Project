@@ -1604,6 +1604,8 @@ point_count = 2
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_6ey2k")
+camera_on = false
+allow_control = false
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false

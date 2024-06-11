@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://btcq8waycui13"]
+[gd_scene load_steps=3 format=3 uid="uid://btcq8waycui13"]
 
 [ext_resource type="Script" path="res://World/battle.gd" id="1_bxoir"]
+[ext_resource type="PackedScene" uid="uid://17uvdl8q4dts" path="res://Characters/player.tscn" id="2_8l50o"]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_bxoir")
@@ -54,6 +55,9 @@ text = "Defend"
 [node name="Scram" type="Button" parent="GridContainer"]
 layout_mode = 2
 text = "Scram"
+
+[node name="Player" parent="." instance=ExtResource("2_8l50o")]
+position = Vector2(576, 96)
 
 [connection signal="pressed" from="GridContainer/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="GridContainer/Defend" to="." method="_on_defend_pressed"]

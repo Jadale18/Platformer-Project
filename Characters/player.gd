@@ -29,6 +29,9 @@ var lshoe = preload('res://Assets/Player/Char_Legs-1.png')
 var rshoe = preload('res://Assets/Player/Char_Legs-2.png')
 var jump_particles = preload('res://Particles/jump_particles.tscn').instantiate()
 
+@export var camera_on = true
+@export var allow_control = true
+
 @onready var collision_polygon_2d = $CollisionPolygon2D
 @onready var polygon_2d = $CollisionPolygon2D/Polygon2D
 @onready var starting_pos = global_position
@@ -43,6 +46,7 @@ func _ready():
 	$Flippables/RightFoot.position = Vector2(-4.428, 10.477)
 	$Flippables/LeftFoot.rotation = 0
 	$Flippables/RightFoot.rotation = 0
+	$Camera2D.enabled = camera_on
 
 func _physics_process(delta):
 	apply_gravity(delta)
@@ -56,7 +60,8 @@ func _physics_process(delta):
 	dash()
 	handle_landing()
 	
-	move_and_slide()
+	if allow_control:
+		move_and_slide()
 
 func handle_anims():
 	if attacking and not dashing:

@@ -26,6 +26,8 @@ func movement():
 	if ray_cast.is_colliding():
 		direction *= -1
 		scale.x *= -1
+		$AnimationPlayer.play("RESET")
+		$AnimationPlayer.play("Walk")
 	velocity.x = direction * SPEED
 
 func apply_gravity(delta):

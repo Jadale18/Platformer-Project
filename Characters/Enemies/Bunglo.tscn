@@ -405,7 +405,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2, 3, 4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(188.249, -35.8569), Vector2(752.995, -318.23), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(300, -35.857), Vector2(752.995, -318.23), Vector2(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -441,7 +441,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 1, 2, 3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(318.23, 573.71), Vector2(35.8568, -0.000347137), Vector2(224.105, 8.96374)]
+"values": [Vector2(0, 0), Vector2(318.23, 573.71), Vector2(35.8568, -0.000347137), Vector2(480, 8.964)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -617,6 +617,7 @@ visible = false
 texture = ExtResource("2_dl3ea")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PackedVector2Array(-608.412, 982.449, 621.382, 965.536, 722.858, 325.27, 411.182, -271.506, 43.9348, -464.794, -386.131, -353.653, -620.492, -20.2317, -494.855, 574.128)
 
 [node name="Parts" type="Node2D" parent="."]
@@ -649,12 +650,13 @@ texture = ExtResource("10_gjtck")
 libraries = {
 "": SubResource("AnimationLibrary_qcgi1")
 }
-speed_scale = 3.0
+speed_scale = 4.0
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(-900, 2.08165e-12)
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 collision_layer = 8
 collision_mask = 2
 

@@ -30,6 +30,7 @@ func enemy_turn(attack):
 	if attack[2] == 'Defend':
 		enemy_defense += 1
 	state = states[0]
+	$GridContainer.visible = true
 
 func win():
 	print(win)
@@ -38,6 +39,7 @@ func win():
 	get_node("/root/Battle").queue_free()
 	Global.battle_scene = preload('res://World/battle.tscn').instantiate()
 	Global.world_scene = preload('res://World/world.tscn').instantiate()
+	BattleInfo.get_child(0).queue_free()
 
 func lose():
 	print(lose)
@@ -55,8 +57,14 @@ func _on_scram_pressed():
 
 func _on_attack_pressed():
 	enemy_health -= (global.player_attack - enemy_defense)
-	state = states [1]
+	$BattleAnims.play("Attack")
+	$GridContainer.visible = false
 
 func _on_defend_pressed():
 	player_health += 10
-	state = states[1]
+	$BattleAnims.play("Defend")
+	$GridContainer.visible = false
+
+func _on_battle_anims_animation_finished(anim_name):
+	if anim_name in ["Attack", "Defend"]:
+		state = states[1]

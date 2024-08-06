@@ -1,9 +1,8 @@
 extends Control
 
-func _ready():
-	get_tree().paused = true
+var checking = false
 	
 
 func _input(event):
-	if (event is InputEventKey or event is InputEventMouseButton) and event.pressed:
+	if (event is InputEventKey or event is InputEventMouseButton) and event.pressed and checking:
 		print('aaaaa')

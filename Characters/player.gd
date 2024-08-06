@@ -25,6 +25,8 @@ var dashbuffer = false
 var attacking = false
 var facing = 1
 
+var battling = false
+
 var lshoe = preload('res://Assets/Player/Char_Legs-1.png')
 var rshoe = preload('res://Assets/Player/Char_Legs-2.png')
 var jump_particles = preload('res://Particles/jump_particles.tscn').instantiate()
@@ -59,6 +61,7 @@ func _physics_process(delta):
 	handle_anims()
 	dash()
 	handle_landing()
+	battle()
 	
 	if allow_control:
 		move_and_slide()
@@ -78,7 +81,7 @@ func handle_anims():
 	elif jumping and not falling:
 		$Flippables/AnimatedSprite2D.play('Jump')
 		$Flippables/AnimationPlayer.play("Jump")
-	elif falling and $Flippables/AnimatedSprite2D.animation != 'falling':
+	elif falling and $Flippables/AnimatedSprite2D.animation != 'falling' and not battling:
 		$Flippables/AnimatedSprite2D.play('fall')
 		$Flippables/AnimationPlayer.play("about_to_fall")
 	
@@ -88,6 +91,16 @@ func handle_anims():
 	if velocity.x > 0:
 		facing = 1
 		$Flippables.scale.x = 1
+
+func battle():
+	if get_parent().name == "Battle" and battling == false:
+		allow_control = false
+		$Flippables/AnimatedSprite2D.play("Rest")
+		$Flippables/AnimationPlayer.play("Rest")
+		battling = true
+	elif get_parent().name != "Battle":
+		battling = false
+	
 
 # Movement
 func handle_axis(direction, delta):
